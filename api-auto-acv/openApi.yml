@@ -1,0 +1,276 @@
+openapi: '3.0.2'
+info:
+  title: Auto-ACV-API
+  version: '1.0'
+servers:
+  - url: '{protocol}://{server}'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      server:
+        default: localhost:8000
+tags:
+  - name: "users"
+    description: "Tout les utilisateur"
+  - name: "vehicules"
+    description: "Tout les vehicules"
+  - name: "mixsEnergetiques"
+    description: "Tout les mixs energetiques"
+  - name: "sourcesEnergie"
+    description: "Toute les sources d'energie"
+paths:
+  /users/{username}:
+    get:
+      tags:
+        - "users"
+      summary: "récupérer un utilisateur par son username"
+      operationId: getUserByUsername
+      parameters:
+        - name: "username"
+          in: "path"
+          description: "Le nom d'utilisateur"
+          required: true
+          schema: 
+            type: "string"
+      responses:
+        "200":
+          description: "L'utilisateur recherché est retourné"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/users'
+        "404":
+          description: "L'utilisateur n'a pas été trouvée"
+  /users/{id}:
+    get:
+      tags:
+        - "users"
+      summary: "récupérer un utilisateur par son id"
+      operationId: "getUserById"
+      parameters:
+        - name: "id"
+          in: path
+          description: "L'identifiant de l'utilisateur"
+          required: true
+          schema:
+            type: "integer"
+      responses:
+        "200":
+          description: "L'utilisateur à été trouvé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/getusers'
+        "404":
+          description: "L'utilisateur n'a pas été trouvé"
+    patch:
+      tags:
+        - "users"
+      summary: "mettre à jour un utilisateur"
+      operationId: "updateUserById"
+      requestBody:
+        description: "doit contenir des information de champs à modifier"
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/users'
+      responses:
+        "201":
+          description: "L'utilisateur à été ajouté à la base de donnée"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/getusers'
+        "400":
+          description: "Un champs essentiels n'est pas présent ou incorrect (username, password, mail)"
+    delete:
+      tags:
+        - "users"
+      summary: "supprimer un utilisateur"
+      operationId: "deleteUserById"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "L'identifiant de l'utilisateur"
+          required: true
+          schema: 
+            type: "integer"
+      responses:
+        "201":
+          description: "L'utilisateur à été supprimé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/getusers'
+        "404":
+          description: "L'utilisateur n'a pas été trouvé"
+  /users:
+    post: 
+      tags:
+        - "users"
+      summary: "ajouter un utilisateur"
+      operationId: addUser
+      requestBody:
+        description: "doit contenir les informations essentiels soit l'username, le password et le mail"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users'
+      responses:
+        "201":
+          description: "Ajoute un utilisateur"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/getusers'
+        "400": 
+          description: "Un champs essentiels n'est pas présent ou incorrect (username, password, mail)"
+        
+components:
+  schemas:
+    getusers:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          example: 1
+        username:
+          type: "string"
+          example: "fred2468"
+        mail:
+          type: "string"
+          example: "superfred2468@ynov.com"
+        admin:
+          type: "boolean"
+          example: true
+    users:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          example: 1
+        username:
+          type: "string"
+          example: "fred2468"
+        mail:
+          type: "string"
+          example: "superfred2468@ynov.com"
+        password:
+          type: "string"
+          example: "F3084YFH30DK0ACKVkicnseifj"
+        admin:
+          type: "boolean"
+          example: true
+    vehicules:
+      type: object
+      properties:
+        id:
+          type: "integer"
+          example: 1
+        brand:
+          type: "string"
+          example: "Mercedes"
+        motorisation:
+          type: "string"
+          example: 
+        consumption:
+          type: "number"
+          example: 12.2
+        buildImpact:
+          type: "number"
+          example: 2.5
+        recycleImpact:
+          type: "number"
+          example: 2
+        technology:
+          type: "string"
+          example: "electrique"
+        type:
+          type: "string"
+          example: "berline"
+        source:
+          type: "string"
+          example: "https://unsite.com"
+        enginePower:
+          type: "integer"
+          example: 120
+        model:
+          type: "string"
+          example: "tesla model 3"
+    mixsEnergetiques:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          example: 1
+        wind:
+          type: "number"
+          example: 13.3
+        solar:
+          type: "number"
+          example: 13.3
+        geothermal:
+          type: "number"
+          example: 13.3
+        biomass:
+          type: "number"
+          example: 13.3
+        hydroelectric:
+          type: "number"
+          example: 13.3
+        nuclear:
+          type: "number"
+          example: 13.3
+        coal:
+          type: "number"
+          example: 13.3
+        oil:
+          type: "number"
+          example: 13.3
+        gaz-fired:
+          type: "number"
+          example: 13.3
+        source:
+          type: "number"
+          example: 13.3
+    sourcesEnergie:
+      type: "object"
+      properties:
+        id:
+          type: integer
+          example: 2
+        wind:
+          type: "number"
+          example: 13.3
+        solar:
+          type: "number"
+          example: 13.3
+        geothermal:
+          type: "number"
+          example: 13.3
+        biomass:
+          type: "number"
+          example: 13.3
+        hydroelectric:
+          type: "number"
+          example: 13.3
+        nuclear:
+          type: "number"
+          example: 13.3
+        coal:
+          type: "number"
+          example: 13.3
+        oil:
+          type: "number"
+          example: 13.3
+        gaz-fired:
+          type: "number"
+          example: 13.3
+        source:
+          type: "number"
+          example: 13.3
