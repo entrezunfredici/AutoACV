@@ -14,7 +14,6 @@ commands= {
     "npm install http-errors",
     "npm install jsonwebtoken",
     "npm install express-openapi-validator"
-    "npm install --save node-cron"
 }
 for command in commands:
     print("execution de la commande ⇒  "+command)
