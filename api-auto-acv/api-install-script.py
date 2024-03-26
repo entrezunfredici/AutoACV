@@ -1,6 +1,6 @@
 #========================================================================
 # This python script created by frederic Macabiau can to help you to create and update your api
-# for launch this script you need to have python3.10 and pip installed
+# for launch this script you need to have npm, python3.10 and pip installed
 # to run the script in Linux or MacOS you can run the following command
 # python3.10 api-install-script.py
 # or in windows you can run the following command
