@@ -130,7 +130,360 @@ paths:
                 $ref: '#/components/schemas/getusers'
         "400": 
           description: "Un champs essentiels n'est pas présent ou incorrect (username, password, mail)"
-        
+  /mixsEnergetiques/{country}:
+    get: 
+      tags:
+        - "mixsEnergetiques"
+      summary: "récupérer un mix energetique par le champs country"
+      operationId: getMixsByCountry
+      parameters:
+        - name: "country"
+          in: "path"
+          description: "le pays du mix"
+          required: true
+          schema: 
+            type: "string"
+      responses:
+        "200":
+          description: "Le mix recherché est retourné"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/mixsEnergetiques'
+        "404":
+          description: "Le mix n'a pas été trouvé"
+    patch:
+      tags:
+        - "mixsEnergetiques"
+      summary: "modifier un mix energetique par le champ country"
+      operationId: updateMixByCountry
+      requestBody:
+        description: "doit contenir des information de champs à modifier"
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/mixsEnergetiques'
+      responses:
+        "200":
+          description: "le mix à été modifié"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/mixsEnergetiques'
+        "404":
+          description: "Le mix n'a pas été trouvé"
+  /mixsEnergetiques/{id}:
+    get: 
+      tags:
+        - "mixsEnergetiques"
+      summary: "récupérer un mix energetique par le champs id"
+      operationId: getMixsById
+      parameters:
+        - name: "country"
+          in: "path"
+          description: "l'id du mix"
+          required: true
+          schema: 
+            type: "integer"
+      responses:
+        "200":
+          description: "Le mix recherché est retourné"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/mixsEnergetiques'
+        "404":
+          description: "Le mix n'a pas été trouvé"
+  /sourcesEnergies:
+    get: 
+      tags:
+        - "sourcesEnergie"
+      summary: "récuperer la ligne de source d'energie"
+      operationId: getSourceEnergie
+      responses:
+        "200":
+          description: "La source est retourné"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/sourcesEnergies'
+        "404":
+          description: "La source n'existe pas"
+    patch: 
+      tags:
+        - "sourcesEnergie"
+      summary: "modifier la ligne de source d'energie"
+      operationId: updateSource
+      requestBody:
+        description: "doit contenir des information de champs à modifier"
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/sourcesEnergies'
+      responses:
+        "201":
+          description: "La source est modifiée"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/sourcesEnergies'
+        "400":
+          description: "Un paramètre est manquant"
+  /vehicules:
+    get: 
+      tags:
+        - "vehicules"
+      summary: "recuperer tout les véhicules"
+      operationId: getVehicules
+      responses:
+        "200":
+          description: "Les véhicules sont retournés"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/vehicules'
+        "404":
+          description: "Les vehicules n'existe pas"
+    post: 
+      tags:
+        - "vehicules"
+      summary: "ajouter un vehicule"
+      operationId: addVehicule
+      requestBody:
+        description: "doit contenir toutes les informations sur un véhicule"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vehicules'
+      responses:
+        "201":
+          description: "Un véhicules à été ajouté"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/vehicules'
+        "400": 
+          description: "Un champs essentiels n'est pas présent ou incorrect"
+  /vehicules/{id}:
+      get:
+        tags:
+          - "vehicules"
+        summary: "récupérer un vehicule par son id"
+        operationId: "getVehiculeById"
+        parameters:
+          - name: "id"
+            in: path
+            description: "L'identifiant du vehicule"
+            required: true
+            schema:
+              type: "integer"
+        responses:
+          "200":
+            description: "Le véhicule à été trouvé"
+            content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/getusers'
+          "404":
+            description: "Le véhicule n'a pas été trouvé"
+      patch:
+        tags: 
+          - "vehicules"
+        summary: "modifier un vehicule"
+        operationId: updateVehicule
+        requestBody:
+          description: "doit contenir des information de champs à modifier"
+          required: true
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/vehicules'
+        responses:
+          "201":
+            description: "Le vehicule à été modifié"
+            content:
+              application/json:
+                schema: 
+                  $ref: '#/components/schemas/vehicules'
+          "400":
+            description: "Un champs essentiels n'est pas présent ou incorrect"
+  /tiquetsSources:
+    get:
+      tags:
+        - "sourcesEnergie"
+      summary: "récupérer tout les tiquets sources"
+      operationId: "getTiquetsSources"
+      responses:
+        "200":
+          description: "Les tiquets sources sont retournés"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/sourcesEnergies'
+        "404":
+          description: "Les tiquets sources n'existe pas"
+    post:
+      tags:
+        - "sourcesEnergie"
+      summary: "ajouter un tiquet source"
+      operationId: "addTiquetSource"
+      requestBody:
+        description: "doit contenir toutes les informations sur un tiquet source"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/sourcesEnergies'
+      responses:
+        "201":
+          description: "Un tiquet source à été ajouté"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/sourcesEnergies'
+        "400": 
+          description: "Un champs essentiels n'est pas présent ou incorrect"
+  /tiquetsSources/{id}:
+    delete:
+      tags:
+        - "sourcesEnergie"
+      summary: "supprimer un tiquet source"
+      operationId: "deleteTiquetSource"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "L'identifiant du tiquet source"
+          required: true
+          schema: 
+            type: "integer"
+      responses:
+        "201":
+          description: "Le tiquet source à été supprimé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/sourcesEnergies'
+        "404":
+          description: "Le tiquet source n'a pas été trouvé"
+  /tiquetsMixs:
+    get:
+      tags:
+        - "mixsEnergetiques"
+      summary: "récupérer tout les tiquets mixs"
+      operationId: "getTiquetsMixs"
+      responses:
+        "200":
+          description: "Les tiquets mixs sont retournés"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/mixsEnergetiques'
+        "404":
+          description: "Les tiquets mixs n'existe pas"
+    post:
+      tags:
+        - "mixsEnergetiques"
+      summary: "ajouter un tiquet mix"
+      operationId: "addTiquetMix"
+      requestBody:
+        description: "doit contenir toutes les informations sur un tiquet mix"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/mixsEnergetiques'
+      responses:
+        "201":
+          description: "Un tiquet mix à été ajouté"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/mixsEnergetiques'
+        "400": 
+          description: "Un champs essentiels n'est pas présent ou incorrect"
+  /tiquetsMixs/{id}:
+    delete:
+      tags:
+        - "mixsEnergetiques"
+      summary: "supprimer un tiquet mix"
+      operationId: "deleteTiquetMix"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "L'identifiant du tiquet mix"
+          required: true
+          schema: 
+            type: "integer"
+      responses:
+        "201":
+          description: "Le tiquet mix à été supprimé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/mixsEnergetiques'
+        "404":
+          description: "Le tiquet mix n'a pas été trouvé"
+  /tiquetsVehicules:
+    get:
+      tags:
+        - "vehicules"
+      summary: "récupérer tout les tiquets vehicules"
+      operationId: "getTiquetsVehicules"
+      responses:
+        "200":
+          description: "Les tiquets vehicules sont retournés"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/vehicules'
+        "404":
+          description: "Les tiquets vehicules n'existe pas"
+    post:
+      tags:
+        - "vehicules"
+      summary: "ajouter un tiquet vehicule"
+      operationId: "addTiquetVehicule"
+      requestBody:
+        description: "doit contenir toutes les informations sur un tiquet vehicule"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/vehicules'
+      responses:
+        "201":
+          description: "Un tiquet vehicule à été ajouté"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/vehicules'
+        "400": 
+          description: "Un champs essentiels n'est pas présent ou incorrect"
+  /tiquetsVehicules/{id}:
+    delete:
+      tags:
+        - "vehicules"
+      summary: "supprimer un tiquet vehicule"
+      operationId: "deleteTiquetVehicule"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "L'identifiant du tiquet vehicule"
+          required: true
+          schema: 
+            type: "integer"
+      responses:
+        "201":
+          description: "Le tiquet vehicule à été supprimé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/vehicules'
+        "404":
+          description: "Le tiquet vehicule n'a pas été trouvé"
 components:
   schemas:
     getusers:
@@ -238,7 +591,7 @@ components:
         source:
           type: "number"
           example: 13.3
-    sourcesEnergie:
+    sourcesEnergies:
       type: "object"
       properties:
         id:
