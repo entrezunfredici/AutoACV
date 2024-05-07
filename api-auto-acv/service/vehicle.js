@@ -43,7 +43,7 @@ exports.getvehiculesByType = async (type) => {
     });
 }
 
-exports.addVehicule = async (brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source){
+exports.addVehicule = async (brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source) => {
     return vehicules.create(
         brand,
         motorisation,
@@ -58,9 +58,9 @@ exports.addVehicule = async (brand, model, motorisation, type, technology, consu
     )
 }
 
-exports.modifVehicles =  async (id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source){
-    const modifiedVehicule = this.getvehiculesById(id);
-    modifierVehicule.update({
+exports.modifVehicles =  async (id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source) => {
+    const modifiedVehicule = await this.getvehiculesById(id);
+    return modifiedVehicule.update({
         brand,
         motorisation,
         consumption,
