@@ -3,8 +3,9 @@ const app = express()
 
 app.use(express.json())
 
-//add routes for routers
+//routes pour les véhicules
 const vehiculesRouter = require('./routers/vehicles');
 app.use('/vehicules', vehiculesRouter);
+//
 
 module.exports = app

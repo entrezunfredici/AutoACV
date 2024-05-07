@@ -20,10 +20,10 @@ module.exports = (instance) => {
             allowNull: false
         },
         buildImpact: {
-            type: DataTypes.STRING,
+            type: DataTypes.FLOAT,
         },
         recycleImpact: {
-            type: DataTypes.STRING,
+            type: DataTypes.FLOAT,
         },
         technology: {
             type: DataTypes.STRING,

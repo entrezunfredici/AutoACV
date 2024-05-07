@@ -1,5 +1,6 @@
 const vehiculeService = require('../service/vehicule');
 
+//controleur pour obtennir tous les véhicules
 exports.getVehicules = async (req, res) => {
     try {
         const vehicules = await vehiculeService.getVehicules();
@@ -9,11 +10,12 @@ exports.getVehicules = async (req, res) => {
     }
 }
 
+//controlleur pour obtennir un véhicule par son id
 exports.getVehiculeById = async (req, res) => {
     try {
-        const vehicule = await vehiculesService.getVehiculesById(req.params.id_Vehicules);
+        const vehicule = await vehiculeService.getVehiculeById(req.params.id);
         if(!vehicules){
-            res.status(404).json({ error: "vehicule not found" });
+            res.status(404).json({ error: "vehicule non trouvé" });
         }
         res.status(201).json({success: true, vehicule});
     } catch (error) {
@@ -21,13 +23,27 @@ exports.getVehiculeById = async (req, res) => {
     }
 }
 
+//controlleur pour ajouter un véhicule
 exports.addVehicle = async (req, res, next) => {
     const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source} = req.body
-    console.log(brand+","+ model+","+ motorisation+","+consumption+","+enginePower);
     try {
         const vehicules = await vehiculeService.addVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source)
         if (!vehicules) {
-            res.status(404).json({ error: "cannot add vehicle" });
+            res.status(400).json({ error: "Le véhicule n'a pas été trouvé" });
+        }
+        return res.status(201).json({success: true, vehicules}).send()
+    } catch(e) {
+        res.status(500).json({ error: e.message });
+    }
+}
+
+//contrôle pour modifier un véhicule
+exports.modifVehicles = async (req, res) => {
+    const {id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source} = req.body
+    try {
+        const vehicules = await vehiculeService.modifVehicles(id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source)
+        if (!vehicules) {
+            res.status(404).json({ error: "cannot modify vehicle" });
         }
         return res.status(201).json({success: true, vehicules}).send()
     } catch(e) {
