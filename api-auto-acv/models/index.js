@@ -12,4 +12,5 @@ module.exports = {
     /*to add an model type:
     model: require('./model')(instance)*/
     vehicules: require('./vehicules')(instance),
+    powerSources: require('./powerSources')(instance)
 }
