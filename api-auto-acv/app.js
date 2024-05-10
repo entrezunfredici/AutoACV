@@ -1,4 +1,5 @@
 const express = require('express')
+const OpenApiValidalidator = require('express-openapi-validator');
 const app = express()
 
 app.use(express.json())
@@ -7,5 +8,11 @@ app.use(express.json())
 const vehiculesRouter = require('./routers/vehicles');
 app.use('/vehicules', vehiculesRouter);
 //
-
+app.use(
+    OpenApiValidalidator.middleware({
+        apiSpec: './openApi.yml',
+        validateResponses: true,
+        ignoreUndocumented : true
+})
+);
 module.exports = app
