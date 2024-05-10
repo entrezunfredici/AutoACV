@@ -21,7 +21,7 @@ print("========================================================================"
 print("bienvennue dans le script de creation et d'update d'api")
 #this dictionary contains all the choises you can make in this script
 choises= {
-    "ceate api",
+    "create api",
     "update api"
 }
 #this dictionary contains all the commands to install the necessary packages

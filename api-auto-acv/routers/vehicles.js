@@ -6,7 +6,7 @@ router.get('', vehiculesController.getVehicules);
 //route pour obtennir un véhicule par son id
 router.get('/:id', vehiculesController.getVehiculeById);
 //route pour ajouter un véhicule
-router.post('/addVehicule', vehiculesController.addVehicle);
+router.post('/addVehicule', vehiculesController.addVehicule);
 //route pour modifier un véhicule
 router.patch('/:id', vehiculesController.updateVehicule);
 

@@ -1,4 +1,5 @@
 const express = require('express')
+const OpenApiValidalidator = require('express-openapi-validator');
 const app = express()
 
 app.use(express.json())
@@ -9,5 +10,13 @@ app.use('/vehicules', vehiculesRouter);
 //routes pour les sources d'énergie
 const powerSourcesRouter = require('./routers/powerSources');
 app.use('/powerSources', powerSourcesRouter);
+//middleware
+app.use(
+    OpenApiValidalidator.middleware({
+        apiSpec: './openApi.yml',
+        validateResponses: true,
+        ignoreUndocumented : true
+    })
+);
 
 module.exports = app
