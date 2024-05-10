@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "f63d1081-89e3-4509-8bda-cdababe2e00d",
+		"name": "AutoACV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32106149"
+	},
+	"item": [
+		{
+			"name": "ajouter un véhicule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"Model 3 (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":14,\r\n    \"enginePower\":366,\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"source\":\"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/vehicules/addVehicule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"vehicules",
+						"addVehicule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir la liste des véhicules",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/vehicules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"vehicules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifier un véhicule",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"Model 3 (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":14,\r\n    \"enginePower\":366,\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"source\": \"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique et https://fr.wikipedia.org/wiki/Tesla_Model_3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/vehicules/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"vehicules",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir un véhicule avec son id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/vehicules/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"vehicules",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
