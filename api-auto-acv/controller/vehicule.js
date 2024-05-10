@@ -4,7 +4,7 @@ const vehiculeService = require('../service/vehicule');
 exports.getVehicules = async (req, res) => {
     try {
         const vehicules = await vehiculeService.getVehicules();
-        res.status(201).json({success: true, vehicules});
+        res.status(200).json({success: true, vehicules});
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -24,7 +24,7 @@ exports.getVehiculeById = async (req, res) => {
 }
 
 //controlleur pour ajouter un véhicule
-exports.addVehicle = async (req, res, next) => {
+exports.addVehicule = async (req, res, next) => {
     const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source} = req.body;
     try {
         const vehicules = await vehiculeService.addVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source);
