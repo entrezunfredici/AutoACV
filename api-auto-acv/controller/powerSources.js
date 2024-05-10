@@ -35,10 +35,14 @@ exports.getPowerSourceByName = async (req, res) => {
 
 exports.editPowerSources = async (req, res, next) => {
     const {powerSources, sources} = req.body;
+    console.log(powerSources);
     let thesePowerSources=[];
-    for(let powerSource in powerSources){
+    for (let powerSourceKey in powerSources) {
+        const powerSourceValue = powerSources[powerSourceKey];
+        console.log(powerSourceKey); // Nom de la clé
+        console.log(powerSourceValue); // Valeur correspondante
         try{
-            const thisPowerSource = await powerSourcesService.editPowerSources(powerSource.name,powerSource.impact,sources);
+            const thisPowerSource = await powerSourcesService.editPowerSources(powerSourceKey,powerSourceValue,sources);
             if (!thisPowerSource) {
                 res.status(404).json({ error: "un champ essenciel n'est pas présent ou incorrect" });
             }

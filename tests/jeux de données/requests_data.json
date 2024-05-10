@@ -1,0 +1,43 @@
+//edit sources d'énergies 
+{
+    "powerSources": {
+        "Coal":820,
+        "Gaz":490,
+        "Biomass(cofiring)":740,
+        "Biomass(dedicated)":230,
+        "Geothermal":38,
+        "Hydropower":24,
+        "Nuclear":12,
+        "SolarPower":27,
+        "Wind":11
+    },
+    "sources": "source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf"
+}
+
+//ajout de véhicule
+{
+    "brand":"Tesla",
+    "model":"Model 3 (phase 3)",
+    "motorisation":"grande autonomie AWD",
+    "type":"berline",
+    "technology":"électrique",
+    "consumption":14,//kwh
+    "enginePower":366,//chevaux
+    "buildImpact":11.5,//tons of CO²
+    "recycleImpact":0,
+    "source":"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique"
+}
+
+//modifications de véhicules
+{
+    "brand":"Tesla",
+    "model":"Model 3 (phase 3)",
+    "motorisation":"grande autonomie AWD",
+    "type":"berline",
+    "technology":"électrique",
+    "consumption":14,
+    "enginePower":366,
+    "buildImpact":11.5,//tons of CO²
+    "recycleImpact":0,
+    "source": "mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique et https://fr.wikipedia.org/wiki/Tesla_Model_3"
+}
