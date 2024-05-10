@@ -7,30 +7,6 @@ module.exports = (instance) => {
             primaryKey: true,
             autoIncrement: true
         },
-        // wind: {
-        //     type: DataTypes.NUMBER
-        // },
-        // solar: {
-        //     type: DataTypes.NUMBER
-        // },
-        // geothermal: {
-        //     type: DataTypes.NUMBER
-        // },
-        // biomass: {
-        //     type: DataTypes.NUMBER
-        // },
-        // hydroelectric: {
-        //     type: DataTypes.NUMBER
-        // },
-        // nuclear: {
-        //     type: DataTypes.NUMBER
-        // },
-        // coal: {
-        //     type: DataTypes.NUMBER
-        // },
-        // gazFired: {
-        //     type: DataTypes.NUMBER
-        // },
         powerSource_name: {
             type: DataTypes.STRING,
             allowNull: false

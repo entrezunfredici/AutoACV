@@ -35,18 +35,3 @@ exports.editPowerSources = async (powerSource_name, powerSource_impact, powerSou
         });
     }
 }
-
-// exports.setPowerSources = async (wind,solar,geothermal,biomass,hydroelectric,nuclear,coal,gazFired,powerSource_info_sources) => {
-//     const powerSourceToSet = await this.getPowerSourceById(powerSource_name);
-//     return await powerSourceToSet.update({
-//         wind:wind,
-//         solar:solar,
-//         geothermal:geothermal,
-//         biomass:biomass,
-//         hydroelectric:hydroelectric,
-//         nuclear:nuclear,
-//         coal:coal,
-//         gazFired:gazFired,
-//         powerSource_info_sources: powerSourceToSet.powerSource_info_sources+" , "+powerSource_info_sources
-//     });
-// }

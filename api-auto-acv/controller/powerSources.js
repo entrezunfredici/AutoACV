@@ -39,8 +39,6 @@ exports.editPowerSources = async (req, res, next) => {
     let thesePowerSources=[];
     for (let powerSourceKey in powerSources) {
         const powerSourceValue = powerSources[powerSourceKey];
-        console.log(powerSourceKey); // Nom de la clé
-        console.log(powerSourceValue); // Valeur correspondante
         try{
             const thisPowerSource = await powerSourcesService.editPowerSources(powerSourceKey,powerSourceValue,sources);
             if (!thisPowerSource) {
