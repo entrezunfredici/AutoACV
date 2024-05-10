@@ -41,28 +41,27 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/vehicules/getVehicules",
+					"raw": "http://localhost:8000/vehicules",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"vehicules",
-						"getVehicules"
+						"vehicules"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/vehicules/updateVehicule",
+			"name": "modifier un véhicule",
 			"request": {
-				"method": "POST",
+				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"Model 3 (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":14,\r\n    \"enginePower\":366,\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"sources\": \"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique et https://fr.wikipedia.org/wiki/Tesla_Model_3\"\r\n}",
+					"raw": "{\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"Model 3 (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":14,\r\n    \"enginePower\":366,\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"source\": \"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique et https://fr.wikipedia.org/wiki/Tesla_Model_3\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -70,7 +69,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/vehicules/updateVehicule",
+					"raw": "http://localhost:8000/vehicules/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -78,19 +77,19 @@
 					"port": "8000",
 					"path": [
 						"vehicules",
-						"updateVehicule"
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost:8000/vehicules/getVehicules/1",
+			"name": "obtennir un véhicule avec son id",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/vehicules/getVehicule/1",
+					"raw": "http://localhost:8000/vehicules/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -98,7 +97,6 @@
 					"port": "8000",
 					"path": [
 						"vehicules",
-						"getVehicule",
 						"1"
 					]
 				}
