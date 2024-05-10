@@ -1,5 +1,5 @@
 module.exports = {
-    hostname: "",
+    hostname: "localhost",
     username: "root",
     password: "root",
     database: "autoACVDatabase",
