@@ -199,11 +199,11 @@ paths:
     get: 
       tags:
         - "sourcesEnergie"
-      summary: "récuperer la ligne de source d'energie"
+      summary: "récuperer l'ensemble des sources d'energie"
       operationId: getSourceEnergie
       responses:
         "200":
-          description: "La source est retourné"
+          description: "Les sources sont retournées"
           content:
             application/json:
               schema: 

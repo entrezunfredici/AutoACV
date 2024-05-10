@@ -9,7 +9,7 @@ const vehiculesRouter = require('./routers/vehicles');
 app.use('/vehicules', vehiculesRouter);
 //routes pour les sources d'énergie
 const powerSourcesRouter = require('./routers/powerSources');
-app.use('/powerSources', powerSourcesRouter);
+app.use('/sourcesEnergies', powerSourcesRouter);
 //middleware
 app.use(
     OpenApiValidalidator.middleware({

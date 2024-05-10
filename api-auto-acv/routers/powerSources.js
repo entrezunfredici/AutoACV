@@ -7,6 +7,6 @@ router.get('/:id', powerSourcesController.getPowerSourceById);
 //obtennir une source d'énergie à partir de son nom
 router.get('/name=:name', powerSourcesController.getPowerSourceByName);
 //éditer des sources d'énergies
-router.post('/edit', powerSourcesController.editPowerSources);
+router.patch('', powerSourcesController.editPowerSources);
 
 module.exports = router;
