@@ -32,8 +32,9 @@ exports.addVehicule = async (brand, model, motorisation, type, technology, consu
 }
 
 //service modifiant un véhicule dans la BDD
-exports.modifVehicles =  async (id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source) => {
+exports.updateVehicule =  async (id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source) => {
     const modifiedVehicule = await this.getVehiculeById(id);
+    console.log(source)
     return await modifiedVehicule.update({
         brand:brand, 
         motorisation:motorisation, 
