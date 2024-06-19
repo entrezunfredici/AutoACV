@@ -13,7 +13,6 @@ exports.getPowerSourceById = async (id_PowerSource) => {
 }
 
 exports.getPowerSourceByName = async (name) => {
-    console.log(name);  // Ajoutez cette ligne pour vérifier que le paramètre est bien reçu
     return await powerSources.findOne({
         where: {
             powerSource_name: name

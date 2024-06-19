@@ -23,7 +23,6 @@ exports.getPowerSourceById = async (req, res) => {
 
 
 exports.getPowerSourceByName = async (req, res) => {
-    console.log(req.params.name);  // Ajoutez cette ligne pour vérifier que le paramètre est bien reçu
     try {
         const powerSource = await powerSourcesService.getPowerSourceByName(req.params.name);
         if (!powerSource) {
