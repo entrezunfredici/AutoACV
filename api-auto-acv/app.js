@@ -24,4 +24,8 @@ app.use(
 const mixsEnergetiquesRouter = require('./routers/mixsEnergetiques');
 app.use('/mixsEnergetiques', mixsEnergetiquesRouter);
 
+//routes pour les tiquetsVehicules
+const ticketsVehiculesRouter = require('./routers/tiquetsVehicules');
+app.use('/tiquetsVehicules', ticketsVehiculesRouter);
+
 module.exports = app
