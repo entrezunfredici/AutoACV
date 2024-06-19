@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "cc75ede8-79bf-4edf-b8d3-f44b4c2ffdc3",
+		"_postman_id": "0bf11e77-5021-40f0-9727-80bd034672f1",
 		"name": "AutoACV",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32988985"
+		"_exporter_id": "32106149"
 	},
 	"item": [
 		{
@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"Model 3 (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":14,\r\n    \"enginePower\":366,\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"source\":\"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique\"\r\n}",
+					"raw": "{\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"Model S (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":13.3,//kwh\r\n    \"enginePower\":670,//chevaux\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"source\":\"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,15 +21,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/vehicules/addVehicule",
+					"raw": "http://localhost:8000/vehicules",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
-						"vehicules",
-						"addVehicule"
+						"vehicules"
 					]
 				}
 			},
@@ -61,7 +60,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"Model 3 (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":14,\r\n    \"enginePower\":366,\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"source\": \"mes sources sont: https://www.tesla.com/fr_fr/model3 https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique et https://fr.wikipedia.org/wiki/Tesla_Model_3\"\r\n}",
+					"raw": "{\r\n    \"brand\":\"Tesla\",\r\n    \"model\":\"ModelS (phase 3)\",\r\n    \"motorisation\":\"grande autonomie AWD\",\r\n    \"type\":\"berline\",\r\n    \"technology\":\"électrique\",\r\n    \"consumption\":13.3,\r\n    \"enginePower\":670,\r\n    \"buildImpact\":11.5,//tons of CO²\r\n    \"recycleImpact\":0,\r\n    \"source\": \"mes sources sont: https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique et https://fr.wikipedia.org/wiki/Tesla_Model_S\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -98,6 +97,94 @@
 					"path": [
 						"vehicules",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir la liste des sources d'énergie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir une source d'énergie pas son id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir une source d'énergie pas son nom",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies/name/Wind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies",
+						"name",
+						"Wind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editer une source d'énergie",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"powerSources\": {\r\n        \"Coal\":820,\r\n        \"Gaz\":490,\r\n        \"Biomass(cofiring)\":740,\r\n        \"Biomass(dedicated)\":230,\r\n        \"Geothermal\":38,\r\n        \"Hydropower\":24,\r\n        \"Nuclear\":12,\r\n        \"SolarPower\":27,\r\n        \"Wind\":11\r\n    },\r\n    \"sources\": \"source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies"
 					]
 				}
 			},

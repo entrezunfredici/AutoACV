@@ -44,7 +44,7 @@ exports.updateVehicule = async (req, res, next) => {
     try {
         const vehicules = await vehiculeService.updateVehicule(id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source);
         if (!vehicules) {
-            res.status(404).json({ error: "un hcamp essenciel n'est pas présent ou incorrect" });
+            res.status(404).json({ error: "un champ essenciel n'est pas présent ou incorrect" });
         }
         return res.status(200).json({success: true, vehicules}).send()
     } catch(e) {
