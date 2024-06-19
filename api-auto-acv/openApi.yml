@@ -200,7 +200,7 @@ paths:
       tags:
         - "sourcesEnergie"
       summary: "récuperer l'ensemble des sources d'energie"
-      operationId: getSourceEnergie
+      operationId: getPowerSources
       responses:
         "200":
           description: "Les sources sont retournées"
@@ -214,7 +214,7 @@ paths:
       tags:
         - "sourcesEnergie"
       summary: "modifier la ligne de source d'energie"
-      operationId: updateSource
+      operationId: editPowerSources
       requestBody:
         description: "doit contenir des information de champs à modifier"
         required: true
@@ -231,6 +231,51 @@ paths:
                 $ref: '#/components/schemas/sourcesEnergies'
         "400":
           description: "Un paramètre est manquant"
+  /sourcesEnergies/{id}:
+    get: 
+      tags:
+        - "sourcesEnergie"
+      summary: "récupérer une source d'energie par son id"
+      operationId: getPowerSourceById
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "L'identifiant de la source d'energie"
+          required: true
+          schema: 
+            type: "integer"
+      responses:
+        "200":
+          description: "La source d'energie à été trouvé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/sourcesEnergies'
+        "404":
+          description: "La source d'energie n'a pas été trouvé"
+  /sourcesEnergies/name/{name}:
+    get: 
+      tags:
+        - "sourcesEnergie"
+      summary: "récupérer une source d'energie par son nom"
+      operationId: getPowerSourceByName
+      parameters:
+        - name: "name"
+          in: "path"
+          description: "Le nom de la source d'energie"
+          required: true
+          schema: 
+            type: "string"
+      responses:
+        "200":
+          description: "La source d'energie à été trouvé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/sourcesEnergies'
+        "404":
+          description: "La source d'energie n'a pas été trouvé"
+
   /vehicules:
     get: 
       tags:

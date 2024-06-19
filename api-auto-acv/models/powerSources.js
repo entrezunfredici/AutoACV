@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
-module.exports = (instance) => {
-    return instance.define('powerSources', {
+module.exports = (sequelize) => {
+    return sequelize.define('powerSources', {
         id_PowerSource: {
             type: DataTypes.INTEGER,
             primaryKey: true,
