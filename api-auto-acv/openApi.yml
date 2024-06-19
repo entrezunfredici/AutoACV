@@ -434,15 +434,21 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/vehicules'
+              $ref: '#/components/schemas/tiquetVehicule'
       responses:
-        "201":
+        "200":
           description: "Un tiquet vehicule à été ajouté"
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/vehicules'
-        "400": 
+                type: "object"
+                properties:
+                  success:
+                    type: "boolean"
+                    example: true
+                  tiquetVehicule:
+                    $ref: '#/components/schemas/tiquetVehicule'
+        "400":
           description: "Un champs essentiels n'est pas présent ou incorrect"
   /tiquetsVehicules/{id}:
     delete:
@@ -458,14 +464,18 @@ paths:
           schema: 
             type: "integer"
       responses:
-        "201":
+        "204":
           description: "Le tiquet vehicule à été supprimé"
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/vehicules'
+                $ref: '#/components/schemas/tiquetVehicule'
         "404":
           description: "Le tiquet vehicule n'a pas été trouvé"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/tiquetVehicule'
 components:
   schemas:
     getusers:
@@ -609,3 +619,31 @@ components:
         source:
           type: "number"
           example: 13.3
+    tiquetVehicule:
+      type: object
+      properties:
+        brand:
+          type: string
+        motorisation:
+          type: string
+        consumption:
+          type: number
+        buildImpact:
+          type: number
+          nullable: true
+        recycleImpact:
+          type: number
+          nullable: true
+        technology:
+          type: string
+        type:
+          type: string
+        source:
+          type: string
+        enginePower:
+          type: number
+          nullable: true
+        model:
+          type: string
+        id_vehicule:
+          type: integer
