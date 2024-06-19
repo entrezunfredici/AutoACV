@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f63d1081-89e3-4509-8bda-cdababe2e00d",
+		"_postman_id": "cc75ede8-79bf-4edf-b8d3-f44b4c2ffdc3",
 		"name": "AutoACV",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32106149"
+		"_exporter_id": "32988985"
 	},
 	"item": [
 		{
@@ -98,6 +98,55 @@
 					"path": [
 						"vehicules",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMixByCountry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/mixsEnergetiques/Espagne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"mixsEnergetiques",
+						"Espagne"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMixByCountry",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"wind\": 12,\r\n        \"solar\": 11,\r\n        \"geothermal\": 11,\r\n        \"biomass\": 11,\r\n        \"hydroelectric\": 11,\r\n        \"nuclear\": 11,\r\n        \"coal\": 11,\r\n        \"oil\": 11,\r\n        \"gaz_fired\": 11,\r\n        \"source\": \"https://unsitesurinternet2.fr\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/mixsEnergetiques/Espagne",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"mixsEnergetiques",
+						"Espagne"
 					]
 				}
 			},

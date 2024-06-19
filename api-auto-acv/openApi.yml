@@ -152,6 +152,8 @@ paths:
                 $ref: '#/components/schemas/mixsEnergetiques'
         "404":
           description: "Le mix n'a pas été trouvé"
+        "500":
+          description: "Erreur interne"
     patch:
       tags:
         - "mixsEnergetiques"
@@ -173,28 +175,8 @@ paths:
                 $ref: '#/components/schemas/mixsEnergetiques'
         "404":
           description: "Le mix n'a pas été trouvé"
-  /mixsEnergetiques/{id}:
-    get: 
-      tags:
-        - "mixsEnergetiques"
-      summary: "récupérer un mix energetique par le champs id"
-      operationId: getMixsById
-      parameters:
-        - name: "country"
-          in: "path"
-          description: "l'id du mix"
-          required: true
-          schema: 
-            type: "integer"
-      responses:
-        "200":
-          description: "Le mix recherché est retourné"
-          content:
-            application/json:
-              schema: 
-                $ref: '#/components/schemas/mixsEnergetiques'
-        "404":
-          description: "Le mix n'a pas été trouvé"
+        "500":
+          description: "Erreur interne"
   /sourcesEnergies:
     get: 
       tags:
@@ -558,9 +540,6 @@ components:
     mixsEnergetiques:
       type: "object"
       properties:
-        id:
-          type: "integer"
-          example: 1
         wind:
           type: "number"
           example: 13.3
@@ -589,8 +568,11 @@ components:
           type: "number"
           example: 13.3
         source:
-          type: "number"
+          type: "string"
           example: 13.3
+        country:
+          type: "string"
+          example: "France"
     sourcesEnergies:
       type: "object"
       properties:
