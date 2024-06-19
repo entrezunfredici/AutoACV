@@ -17,7 +17,7 @@ exports.getVehiculeById = async (req, res) => {
         if(!vehicule){
             res.status(404).json({ error: "vehicule non trouvé" });
         }
-        res.status(201).json({success: true, vehicule});
+        res.status(200).json({success: true, vehicule});
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -46,7 +46,7 @@ exports.updateVehicule = async (req, res, next) => {
         if (!vehicules) {
             res.status(404).json({ error: "un hcamp essenciel n'est pas présent ou incorrect" });
         }
-        return res.status(201).json({success: true, vehicules}).send()
+        return res.status(200).json({success: true, vehicules}).send()
     } catch(e) {
         res.status(500).json({ error: e.message });
     }
