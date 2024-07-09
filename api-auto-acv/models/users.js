@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
-module.exports = (instance) => {
-    return instance.define("user", {
+module.exports = (sequelize) => {
+    return sequelize.define("usersModel", {
         id_Users: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -15,7 +15,7 @@ module.exports = (instance) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        email: {
+        mail: {
             type: DataTypes.STRING,
             allowNull: false
         },

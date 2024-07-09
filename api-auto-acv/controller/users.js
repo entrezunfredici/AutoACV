@@ -20,15 +20,15 @@ exports.authMiddleware = async (req, res, next) => {
 }
 
 exports.register = async (req, res, next) => {
-    const {username, password, email} = req.body;
+    const {username, password, mail} = req.body;
     try {
-        const user = await usersService.addUser(username, password, email)
+        const user = await usersService.addUser(username, password, mail, admin=false)
         if (!user) {
             return next(createError(404, 'Cannot register user'));
         }
         return res.status(201).json(true).send()
     } catch(error) {
-        return next(createError(500, error));
+        res.status(500).json({success: false, message: error.message});
     }
 }
 
@@ -41,7 +41,7 @@ exports.login = async (req, res, next) => {
         }
         return res.status(400).json({ success: false, token: ''});
     } catch(error) {
-        return next(createError(500, error));
+        res.status(500).json({success: false, message: error.message});
     }
 };
 
