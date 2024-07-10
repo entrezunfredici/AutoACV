@@ -19,7 +19,7 @@ exports.addTiquetSource = async (req, res) => {
             res.status(400).json({ error: "Le tiquet n'a pas été ajouté" });
         }
         console.log(res);
-        res.status(200);
+        res.status(201);
         return res.json({success: true, tiquetSource});
     } catch (error) {
         console.log(error);

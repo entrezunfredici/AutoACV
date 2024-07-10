@@ -59,7 +59,7 @@ module.exports = (instance) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'usersModel',
+                model: 'usersmodels',
                 key: 'id_Users'
             }
         }

@@ -142,7 +142,7 @@ paths:
         content:
           application/json:
             schema: 
-              $ref: "string"
+              $ref: "#/components/schemas/usersLogin"
       responses:
         "200":
           description: "L'utilisateur est connecté"
@@ -173,7 +173,7 @@ paths:
         content:
           application/json:
             schema: 
-              $ref: "string"
+              $ref: "#/components/schemas/usersLogin"
       responses:
         "201":
           description: "Le mot de passe à été modifié"
@@ -611,6 +611,16 @@ components:
         admin:
           type: "boolean"
           example: true
+    usersLogin:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+          example: "fred2468"
+        password:
+          type: "string"
+          example: "F3084YFH30DK0ACKVkicnseifj"
+
     vehicules:
       type: object
       properties:
@@ -717,8 +727,8 @@ components:
           type: "number"
           example: 13.3
         source:
-          type: "number"
-          example: 13.3
+          type: "string"
+          example: "Test Source 1"
     tiquetVehicule:
       type: object
       properties:
