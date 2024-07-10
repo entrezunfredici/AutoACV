@@ -2,6 +2,9 @@ require('dotenv').config();
 const express = require('express')
 const OpenApiValidalidator = require('express-openapi-validator');
 const app = express()
+const cors = require('cors');
+
+app.use(cors());
 
 app.use(express.json())
 
