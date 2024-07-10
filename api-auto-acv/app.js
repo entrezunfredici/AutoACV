@@ -28,8 +28,4 @@ app.use('/mixsEnergetiques', mixsEnergetiquesRouter);
 const ticketsVehiculesRouter = require('./routers/tiquetsVehicules');
 app.use('/tiquetsVehicules', ticketsVehiculesRouter);
 
-//routes pour les tiquetsSources 
-const ticketsSourcesRouter = require('./routers/tiquetsSources');
-app.use('/tiquetsSources', ticketsSourcesRouter);
-
 module.exports = app

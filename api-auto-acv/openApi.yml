@@ -349,7 +349,7 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/tiquetSourcesEnergies'
+                $ref: '#/components/schemas/sourcesEnergies'
         "404":
           description: "Les tiquets sources n'existe pas"
     post:
@@ -363,14 +363,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/tiquetSourcesEnergies'
+              $ref: '#/components/schemas/sourcesEnergies'
       responses:
         "201":
           description: "Un tiquet source à été ajouté"
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/tiquetSourcesEnergies'
+                $ref: '#/components/schemas/sourcesEnergies'
         "400": 
           description: "Un champs essentiels n'est pas présent ou incorrect"
   /tiquetsSources/{id}:
@@ -392,7 +392,7 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/tiquetSourcesEnergies'
+                $ref: '#/components/schemas/sourcesEnergies'
         "404":
           description: "Le tiquet source n'a pas été trouvé"
   /tiquetsMixs:
@@ -658,7 +658,7 @@ components:
         oil:
           type: "number"
           example: 13.3
-        gaz_fired:
+        gaz-fired:
           type: "number"
           example: 13.3
         source:
@@ -692,45 +692,3 @@ components:
           type: string
         id_vehicule:
           type: integer
-    tiquetSourcesEnergies:
-      type: "object"
-      properties:
-        id:
-          type: integer
-          example: 2
-        wind:
-          type: "number"
-          example: 13.3
-        solar:
-          type: "number"
-          example: 13.3
-        geothermal:
-          type: "number"
-          example: 13.3
-        biomass:
-          type: "number"
-          example: 13.3
-        hydroelectric:
-          type: "number"
-          example: 13.3
-        nuclear:
-          type: "number"
-          example: 13.3
-        coal:
-          type: "number"
-          example: 13.3
-        oil:
-          type: "number"
-          example: 13.3
-        gaz_fired:
-          type: "number"
-          example: 13.3
-        source:
-          type: "number"
-          example: 13.3
-        id_source:
-          type: integer
-          example: 2
-        id_user:
-          type: integer
-          example: 2

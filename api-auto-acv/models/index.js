@@ -15,6 +15,5 @@ module.exports = {
     vehicules: require('./vehicules')(instance),
     tiquetsVehicules: require('./tiquetsVehicules')(instance),
     powerSources: require('./powerSources')(instance),
-    mixsEnergetiques: require('./mixsEnergetiques')(instance),
-    tiquetsSources: require('./tiquetsSources')(instance)
+    mixsEnergetiques: require('./mixsEnergetiques')(instance)
 }
