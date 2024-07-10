@@ -545,6 +545,82 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "getTiquetsMixs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/tiquetsMixs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tiquetsMixs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addTiquetMix",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"wind\": 5.2,\r\n    \"solar\": 3.5,\r\n    \"geothermal\": 1,\r\n    \"biomass\": 0.7,\r\n    \"hydroelectric\": 10.1,\r\n    \"nuclear\": 12,\r\n    \"coal\": 15.3,\r\n    \"oil\": 8.5,\r\n    \"gaz_fired\": 6,\r\n    \"source\": \"Test Source 1\",\r\n    \"country\": \"France\",\r\n    \"id_user\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/tiquetsMixs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tiquetsMixs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTiquetMix",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/tiquetsMixs/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"tiquetsMixs",
+						"8"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
