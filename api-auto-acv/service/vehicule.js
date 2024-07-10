@@ -7,7 +7,6 @@ exports.getVehicules = async (req, res) => {
 
 //service retournant un véhicule par son id
 exports.getVehiculeById = async (id_Vehicules) => {
-    console.log(id_Vehicules);
     return await vehicules.findOne({
         where:{
             id_Vehicules: id_Vehicules
@@ -34,7 +33,6 @@ exports.addVehicule = async (brand, model, motorisation, type, technology, consu
 //service modifiant un véhicule dans la BDD
 exports.updateVehicule =  async (id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source) => {
     const modifiedVehicule = await this.getVehiculeById(id);
-    console.log(source)
     return await modifiedVehicule.update({
         brand:brand, 
         motorisation:motorisation, 

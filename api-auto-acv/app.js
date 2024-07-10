@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const OpenApiValidalidator = require('express-openapi-validator');
 const app = express()
@@ -10,6 +11,9 @@ app.use('/vehicules', vehiculesRouter);
 //routes pour les sources d'énergie
 const powerSourcesRouter = require('./routers/powerSources');
 app.use('/sourcesEnergies', powerSourcesRouter);
+//routes pour les utilisateurs
+const usersRouter = require('./routers/users');
+app.use('/users', usersRouter);
 //middleware
 //Middleware to validate the request and response against the OpenAPI schema
 app.use(

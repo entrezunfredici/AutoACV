@@ -1,7 +1,5 @@
 const { Sequelize } = require('sequelize');
 const dbConfig = require('../db.config');
-const tiquetsVehicules = require('./tiquetsVehicules');
-const tiquetsSources = require('./tiquetsSources');
 
 const instance = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
     host: dbConfig.hostname,
@@ -17,5 +15,6 @@ module.exports = {
     tiquetsVehicules: require('./tiquetsVehicules')(instance),
     powerSources: require('./powerSources')(instance),
     mixsEnergetiques: require('./mixsEnergetiques')(instance),
-    tiquetsSources: require('./tiquetsSources')(instance)
+    tiquetsSources: require('./tiquetsSources')(instance),
+    usersModel: require('./users')(instance)
 }
