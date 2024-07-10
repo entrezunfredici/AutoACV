@@ -30,56 +30,62 @@ exports.getUserByUsernameWithPassword = async (username) => {
     })
 }
 
-//add user
 exports.addUser = async (username, password, mail, admin) => {
-    console.log(username, password, mail, admin)
-    const existingUser = await this.getUserByUsername(username)
+    const existingUser = await this.getUserByUsername(username);
     if (existingUser) {
-        return next(createError(401, 'user already exists'));
+        throw new Error('User already exists');
     }
-    return bcrypt.hash(password, 10).then((hash) => {
-        return usersModel.create({
+    try {
+        const hash = await bcrypt.hash(password, 10);
+        return await usersModel.create({
             username: username,
             password: hash,
             mail: mail,
             admin: admin
-        })
-    }).catch((e) => {
-        res.status(500).json({success: false, message: e.message});
-    })
+        });
+    } catch (e) {
+        throw new Error(e.message);
+    }
 }
 
 //update user
-exports.updateUser = async (id, username, mail, admin) => {
+exports.updateUserById = async (id, username, mail, admin) => {
     const modifiedUser = await this.getUserByID(id);
+    if(!modifiedUser){
+        throw new NotFound('User not found');
+    }
     modifiedUser.update({
         username: username,
         mail: mail,
         admin: admin
     });
-    return this.createToken(user);
+    return this.createToken(modifiedUser);
 }
 
 //change user password
-exports.changePasswrod = async (id, password) => {
+exports.updatePassword = async (id, password) => {
     const modifiedUser = await this.getUserByID(id);
-    return bcrypt.hash(password, 10, async (err, hash) => {
-        modifiedUser.update({
-            password: hash
-        });
-    });
+    if (!modifiedUser) {
+        throw new NotFound('User not found');
+    }
+    try {
+        const hash = await bcrypt.hash(password, 10);
+        await modifiedUser.update({ password: hash });
+        return modifiedUser;
+    } catch (e) {
+        throw new Error(e.message);
+    }
 }
 
 //login 
 exports.login = async (username, password) => {
     const user = await this.getUserByUsernameWithPassword(username);
     if(!user){
-        throw new NotFound('no user found for username: ' + username);
+        throw new NotFound('invalid logins');
     }
     const verifiedUser = await bcrypt.compare(password, user.password);
-    console.log(verifiedUser)
     if (!verifiedUser) {
-        throw new NotFound('no user found for username: ' + username);
+        throw new NotFound('invalid logins');
     }
     return this.createToken(user);
 }
@@ -98,4 +104,17 @@ exports.createToken = (user) => {
     }, process.env.SECRET, { 
         expiresIn: '30s'
     })
+}
+
+exports.deleteUserById = async (id) => {
+    try{
+        await usersModel.destroy({
+            where:{
+                id_Users: id
+            }
+        });
+        return true;
+    }catch(e){
+        throw new ServerError(e.message);
+    }
 }

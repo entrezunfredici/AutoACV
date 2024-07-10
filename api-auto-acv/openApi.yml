@@ -154,6 +154,37 @@ paths:
           description: "Un champs essentiels n'est pas présent ou incorrect (username, password)"
         "404":
           description: "L'utilisateur n'a pas été trouvé"  
+  /users/password/{id}:
+    patch:
+      tags:
+        - "users"
+      summary: "modifier le mot de passe d'un utilisateur"
+      operationId: updatePassword
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "L'identifiant de l'utilisateur"
+          required: true
+          schema: 
+            type: "integer"
+      requestBody:
+        description: "doit contenir le nouveau mot de passe"
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: "string"
+      responses:
+        "201":
+          description: "Le mot de passe à été modifié"
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/getusers'
+        "400":
+          description: "Un champs essentiels n'est pas présent ou incorrect (password)"
+        "404":
+          description: "L'utilisateur n'a pas été trouvé"
   /mixsEnergetiques/{country}:
     get: 
       tags:
