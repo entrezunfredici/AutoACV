@@ -1,11 +1,189 @@
 {
 	"info": {
-		"_postman_id": "cc75ede8-79bf-4edf-b8d3-f44b4c2ffdc3",
+		"_postman_id": "61ac54ff-bbc2-4626-821d-ddfbc040a50e",
 		"name": "AutoACV",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32988985"
 	},
 	"item": [
+		{
+			"name": "changer le mot de passe",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/password/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"password",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifier un utilisateur",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"kévin\",\r\n    \"mail\": \"kévin@ducon.fr\",\r\n    \"admin\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimer un utilisateur",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "se connecter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"kévin\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir un utilisateur via son id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir un utilisateur via son nom",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/users/name/kévin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"name",
+						"kévin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "s'enregistrer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"kévin\",\r\n    \"password\":\"1234\",\r\n    \"mail\":\"kévin@ducon.fr\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "ajouter un véhicule",
 			"request": {
@@ -103,93 +281,93 @@
 			"response": []
 		},
 		{
-		"name": "obtennir la liste des sources d'énergie",
-		"request": {
-			"method": "GET",
-			"header": [],
-			"url": {
-				"raw": "http://localhost:8000/sourcesEnergies",
-				"protocol": "http",
-				"host": [
-					"localhost"
-				],
-				"port": "8000",
-				"path": [
-					"sourcesEnergies"
-				]
-			}
-		},
-		"response": []
-	},
-	{
-		"name": "obtennir une source d'énergie pas son id",
-		"request": {
-			"method": "GET",
-			"header": [],
-			"url": {
-				"raw": "http://localhost:8000/sourcesEnergies/1",
-				"protocol": "http",
-				"host": [
-					"localhost"
-				],
-				"port": "8000",
-				"path": [
-					"sourcesEnergies",
-					"1"
-				]
-			}
-		},
-		"response": []
-	},
-	{
-		"name": "obtennir une source d'énergie pas son nom",
-		"request": {
-			"method": "GET",
-			"header": [],
-			"url": {
-				"raw": "http://localhost:8000/sourcesEnergies/name/Wind",
-				"protocol": "http",
-				"host": [
-					"localhost"
-				],
-				"port": "8000",
-				"path": [
-					"sourcesEnergies",
-					"name",
-					"Wind"
-				]
-			}
-		},
-		"response": []
-	},
-	{
-		"name": "editer une source d'énergie",
-		"request": {
-			"method": "PATCH",
-			"header": [],
-			"body": {
-				"mode": "raw",
-				"raw": "{\r\n    \"powerSources\": {\r\n        \"Coal\":820,\r\n        \"Gaz\":490,\r\n        \"Biomass(cofiring)\":740,\r\n        \"Biomass(dedicated)\":230,\r\n        \"Geothermal\":38,\r\n        \"Hydropower\":24,\r\n        \"Nuclear\":12,\r\n        \"SolarPower\":27,\r\n        \"Wind\":11\r\n    },\r\n    \"sources\": \"source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf\"\r\n}",
-				"options": {
-					"raw": {
-						"language": "json"
-					}
+			"name": "obtennir la liste des sources d'énergie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies"
+					]
 				}
 			},
-			"url": {
-				"raw": "http://localhost:8000/sourcesEnergies",
-				"protocol": "http",
-				"host": [
-					"localhost"
-				],
-				"port": "8000",
-				"path": [
-					"sourcesEnergies"
-				]
-			}
+			"response": []
 		},
-		"response": []
-	},
+		{
+			"name": "obtennir une source d'énergie pas son id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtennir une source d'énergie pas son nom",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies/name/Wind",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies",
+						"name",
+						"Wind"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editer une source d'énergie",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"powerSources\": {\r\n        \"Coal\":820,\r\n        \"Gaz\":490,\r\n        \"Biomass(cofiring)\":740,\r\n        \"Biomass(dedicated)\":230,\r\n        \"Geothermal\":38,\r\n        \"Hydropower\":24,\r\n        \"Nuclear\":12,\r\n        \"SolarPower\":27,\r\n        \"Wind\":11\r\n    },\r\n    \"sources\": \"source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/sourcesEnergies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"sourcesEnergies"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getMixByCountry",
 			"request": {
@@ -243,7 +421,10 @@
 			"name": "getTiquetsVehicules",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
@@ -279,7 +460,10 @@
 			"name": "deleteTiquetVehicule",
 			"request": {
 				"method": "DELETE",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": ""
+				}
 			},
 			"response": []
 		},
