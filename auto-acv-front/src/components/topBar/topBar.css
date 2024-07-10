@@ -1,5 +1,7 @@
+@import url('../colors.css');
+
 #topBar{
-    background-color: #303030;
+    background-color: var(--navBarColor);
     width: 100%;
     height: 10vh;
 }

@@ -60,3 +60,10 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- INSERT INTO `vehicles` (`id_Vehicules`, `brand`, `motorisation`, `consumption`, `buildImpact`, `recycleImpact`, `technology`, `type`, `source`, `enginePower`, `model`, `createdAt`, `updatedAt`) VALUES
+-- ('Toyota', 'Hybrid', 4.5, 2.3, 1.1, 'Hybrid', 'Sedan', 'Official Report', 150, 'Prius', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+-- ('Tesla', '60D', 16.9, 3, 0.8, 'Electric', 'SUV', 'Manufacturer and wikipedia https://fr.wikipedia.org/wiki/Tesla_Model_X', 300, 'Model X (phase 1)', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+-- ('Ford', 'Diesel', 8.5, 4.2, 2.5, 'Diesel', 'Truck', 'Industry Analysis', 250, 'F-150', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+-- ('BMW', 'gasoline V6', 7, 3.5, 1.7, 'Petrol', 'Coupe', 'Journal Review', 220, 'M4', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+-- ('Nissan', '', 0, 2.8, 1, 'Electric', 'Hatchback', 'Environmental Study and wikipedia= https://fr.wikipedia.org/wiki/Nissan_Leaf', 110, 'Leaf ZE0', '2024-06-19 10:00:00', '2024-06-19 10:00:00');

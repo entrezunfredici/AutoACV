@@ -1,0 +1,7 @@
+@import url('../colors.css');
+
+#vehicleSelector{
+    background-color: var(--navBarColor);
+    width: 500px;
+    color: var(--copper);
+}
