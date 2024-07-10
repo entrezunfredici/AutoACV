@@ -7,9 +7,9 @@ function TopBar(){
                 {/* <img src=""/> */}
             </div>
             <div id="topBar_menu">
-                <button id="ticket_button" class="topBar_button"></button>
-                <button id="energy_button" class="topBar_button"></button>
-                <button id="login_button" class="topBar_button"></button>
+                <button id="ticket_button" class="topBar_button">tickets</button>
+                <button id="energy_button" class="topBar_button">energy</button>
+                <button id="login_button" class="topBar_button">log in</button>
             </div>
         </div>
     );
