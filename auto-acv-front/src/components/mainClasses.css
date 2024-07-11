@@ -1,0 +1,38 @@
+@import url('./colors.css');
+
+.separator{
+    border-color: --thirdBorderColor;
+    border-width: 1px;
+    border-style: solid;
+    margin: 10px 0;
+}
+
+.classicButton{
+    border-color: --firstBorderColor;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: var(--classicButtonColor);
+    color: var(--fontLight);
+    padding: 5px 10px;
+}
+
+.confirmButton{
+    border-color: --thirdBorderColor;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: var(--success);
+    color: var(--fontDark);
+    padding: 5px 10px;
+}
+
+.cancelButton{
+    border-color: --thirdBorderColor;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 30px;
+    background-color: var(--danger);
+    color: var(--fontDark);
+    padding: 5px 10px;
+}

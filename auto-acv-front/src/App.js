@@ -12,12 +12,6 @@ import Vehicule from './components/models';
 // dans le componentDidMount on fait un fetch pour recuperer les données
 // etape 3:
 // on met les données dans le tableau du state
-// etape 4:
-// il faut creer une classe dans le fichier models.js et importer votres classe ici
-// etape 5:
-// creer une instance a partir de votre modèle
-// etape 6:
-// faites les traitements de donénes que vous souhaitez
 //
 // pour ce faire vous pouvez vous inspirer de ce qui a déja été fait 
 
@@ -46,7 +40,14 @@ class App extends Component {
           <TopBar />
         </header>
         <main>
-          <VehicleSelector vehicles={this.state.vehicles} />
+          <section id="vehiclesSelectors">
+            <div id="car1" class="vehicleSelectorUnit">
+              <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
+            </div>
+            <div id="car2" class="vehicleSelectorUnit">
+              <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"}/>
+            </div>
+          </section>
         </main>
         <footer>
         </footer>

@@ -1,5 +1,5 @@
 
-/* global-vars.css */
+/* colors list */
 :root {
     /*colors list*/
     --blue: #007bff;
@@ -32,4 +32,57 @@
     --navBarColor: var(--charcoalGray);
     --firstBorderColor: var(--chromeGray);
     --secondBorderColor: var(--copper);
+    --thirdBorderColor: var(--black);
+    --darkThemeBkgnd: var(--darkBlue);
+    --lightThemeBkgnd: var(--white);
+    --classicButtonColor: var(--charcoalGray)
+}
+
+/*border classes*/
+.lightBorder{
+    border-color: var(--firstBorderColor);
+}
+
+.copperBorder{
+    border-color: var(--secondBorderColor);
+}
+
+.darkBorder{
+    border-color: var(--thirdBorderColor);
+}
+
+/*theme classes*/
+.darkTheme{
+    background-color: var(--darkThemeBkgnd);
+    color: var(--fontLight);
+}
+
+.lightTheme{
+    background-color: var(--lightThemeBkgnd);
+    color: var(--fontDark);
+}
+
+/*background classes*/
+.danger{
+    background-color: var(--danger);
+}
+
+.success{
+    background-color: var(--success);
+}
+
+.primary{
+    background-color: var(--primary);
+}
+
+.secondary{
+    background-color: var(--secondary);
+}
+
+.info{
+    background-color: var(--info);
+}
+
+.orangeElem{
+    background-color: var(--orange);
 }

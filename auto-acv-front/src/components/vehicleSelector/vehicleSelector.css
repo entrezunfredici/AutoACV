@@ -1,7 +1,16 @@
 @import url('../colors.css');
+@import url('../mainClasses.css');
 
 #vehicleSelector{
-    background-color: var(--navBarColor);
-    width: 500px;
-    color: var(--copper);
+    width: 100%;
+    height: 100%;
+}
+
+#vehicleList{
+    margin-top: 10px;
+}
+
+#vehicleAffiche{
+    width: 100%;
+    height: 500px;
 }
