@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import TopBar from './components/topBar/topBar'
+import SignUpForm from './components/forms/signUpForm';
 import Vehicule from './models';
+
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -51,6 +53,7 @@ class App extends Component {
         </header>
         <body>
           <p>test</p>
+          <SignUpForm />
           {
             vehicleInstances.map(vehicle => (
               <div key={vehicle.id_Vehicules}>
