@@ -1,2 +1,15 @@
 @import url('../colors.css');
 @import url('../mainClasses.css');
+
+#energyMixSelector{
+    display:flex;
+    align-items: center;
+}
+
+#energyMix {
+    margin-right: 10px; /* Ajoute un espace entre le select et le texte */
+}
+
+#textSection p {
+    margin: 0; /* Supprime la marge par défaut du paragraphe */
+}

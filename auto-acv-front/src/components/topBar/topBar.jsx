@@ -2,7 +2,7 @@ import './topBar.css';
 
 function TopBar(){
     return(
-        <div id="topBar">
+        <div id="topBar" className="copperBorder">
             <div id="topBar_logo">
                 {/* <img src=""/> */}
             </div>

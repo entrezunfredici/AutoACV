@@ -8,37 +8,64 @@
 }
 
 .classicButton{
-    border-color: --firstBorderColor;
+    border-color: var(--lightBorder);
     border-width: 1px;
     border-style: solid;
     border-radius: 30px;
     background-color: var(--classicButtonColor);
     color: var(--fontLight);
     padding: 5px 10px;
+    box-shadow: 5px 5px 5px 0px var(--shadow);
+    transition: all 0.3s ease
+}
+.classicButton:active,
+.classicButton:focus {
+    transform: translateY(2px);
+    box-shadow: 5px 5px 10px 0px var(--shadow);
 }
 
 .confirmButton{
-    border-color: --thirdBorderColor;
+    border-color: var(--copperBorder);
     border-width: 1px;
     border-style: solid;
     border-radius: 30px;
     background-color: var(--success);
     color: var(--fontDark);
     padding: 5px 10px;
+    box-shadow: 5px 5px 5px 0px var(--shadow);
+    transition: all 0.3s ease
+}
+.confirmButton:active,
+.confirmButton:focus {
+    transform: translateY(2px);
+    box-shadow: 5px 5px 10px 0px var(--shadow);
 }
 
 .cancelButton{
-    border-color: --thirdBorderColor;
+    border-color: var(--copperBorder);
     border-width: 1px;
     border-style: solid;
     border-radius: 30px;
     background-color: var(--danger);
     color: var(--fontDark);
     padding: 5px 10px;
+    box-shadow: 5px 5px 5px 0px var(--shadow);
+    transition: all 0.3s ease
+}
+.cancelButton:active,
+.cancelButton:focus {
+    transform: translateY(2px);
+    box-shadow: 5px 5px 10px 0px var(--shadow);
 }
 
 .classicSize{
-    font-size: 1.5em;
+    width:200px;
+    height:30px;
+    font-size:20px
+}
+
+.classicFont{
+    font-size:20px;
 }
 
 .xxlw{

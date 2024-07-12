@@ -53,12 +53,12 @@ class VehicleSelector extends Component {
                 {this.state.showVehicleList && (
                     <div id="vehicleList">
                         {vehicles && vehicles.map(vehicle => (
-                            <div key={vehicle.id_Vehicules} className="vehicleAffiche darkBorder">
+                            <div key={vehicle.id_Vehicules} className="vehicleAffiche lightBorder">
                                 <div id="vehicleElemHeader">
                                     <h2>{vehicle.brand} {vehicle.model} {vehicle.motorisation}</h2>
                                 </div>
-                                <div className="separator"></div>
-                                <div id="vehicleStats">
+                                <div className="separator darkBorder"></div>
+                                <div id="vehicleStats" className="classicFont">
                                     <p>Technologie: {vehicle.technology}</p>
                                     {vehicle.technology === "electric" && (
                                         <p>Consommation: {vehicle.consumption} kwh/100km</p>
@@ -85,7 +85,7 @@ class VehicleSelector extends Component {
                                     )}
                                     <p>Impact de construction: {vehicle.buildImpact} tonnes CO2</p>
                                     <p>Puissance: {vehicle.enginePower} chevaux</p>
-                                    <button className="classicButton" onClick={() => this.handleVehicleSelect(vehicle)}>select this vehicle</button>
+                                    <button className="classicButton classicSize" onClick={() => this.handleVehicleSelect(vehicle)}>select this vehicle</button>
                                 </div>
                             </div>
                         ))}

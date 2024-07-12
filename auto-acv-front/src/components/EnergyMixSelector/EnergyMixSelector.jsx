@@ -38,7 +38,7 @@ class EnergyMixSelector extends Component {
         const kwhImpact = this.calculateKwhImpact(energyMix);
 
         return (
-            <div id="energyMix">
+            <div id="energyMixSelector" className="classicFont">
                 <select
                     name="energyMixes"
                     id="energyMix"
@@ -49,9 +49,11 @@ class EnergyMixSelector extends Component {
                         <option key={energyMix.country} value={energyMix.country}>{energyMix.country}</option>
                     ))}
                 </select>
-                <p>
-                    Impact kWh moyen: {kwhImpact}
-                </p>
+                <div id = "textSection">
+                    <p>
+                        en moyenne {kwhImpact} g de CO² pa kWh 
+                    </p>
+                </div>
             </div>
         );
     }

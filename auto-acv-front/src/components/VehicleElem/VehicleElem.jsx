@@ -10,10 +10,10 @@ const VehicleElem = (props) => {
         <div id="vehicleElemSection" className="lightBorder">
             <div id="vehicleElemHeader">
                 <h2>{vehicle && vehicle.brand} {vehicle && vehicle.model} {vehicle && vehicle.motorisation}</h2>
-                <button className="classicButton" onClick={handleReturnToList}>select a car</button>
+                <button className="classicButton classicSize" onClick={handleReturnToList}>select a car</button>
             </div>
-            <div className="separator"></div>
-            <div id="vehicleStats">
+            <div className="separator darkBorder"></div>
+            <div id="vehicleStats" className="classicFont">
                 <p>Technologie: {vehicle && vehicle.technology}</p>
                 {vehicle && vehicle.technology === "electric" && (
                     <p>Consommation: {vehicle.consumption} kwh/100km</p>
@@ -40,7 +40,7 @@ const VehicleElem = (props) => {
                 )}
                 <p>Impact de construction: {vehicle && vehicle.buildImpact} tonnes CO2</p>
                 <p>Puissance: {vehicle && vehicle.enginePower} chevaux</p>
-                <button className="classicButton" onClick={handleShowSources}>sources</button>
+                <button className="classicButton classicSize" onClick={handleShowSources}>sources</button>
             </div>
         </div>
     );

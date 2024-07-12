@@ -28,6 +28,7 @@
     --danger: #dc3545;
     --fontLight: #f8f9fa;
     --fontDark: #343a40;
+    --shadow: rgba(0,0,0,0.75);
     /*color elems*/
     --navBarColor: var(--charcoalGray);
     --firstBorderColor: var(--chromeGray);
@@ -42,16 +43,19 @@
 .lightBorder{
     border-color: var(--firstBorderColor);
     border-width: 1px;
+    border-style: solid;
 }
 
 .copperBorder{
     border-color: var(--secondBorderColor);
     border-width: 1px;
+    border-style: solid;
 }
 
 .darkBorder{
     border-color: var(--thirdBorderColor);
     border-width: 1px;
+    border-style: solid;
 }
 
 /*theme classes*/

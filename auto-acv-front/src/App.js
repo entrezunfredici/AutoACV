@@ -3,7 +3,6 @@ import './App.css';
 import TopBar from './components/topBar/topBar'
 import VehicleSelector from './components/VehicleSelector/VehicleSelector';
 import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector';
-import Vehicule from './components/models';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -55,13 +54,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      //<div className="App lightTheme">
+      <div className="App darkTheme">
         <header className="App-header">
           <TopBar />
         </header>
         <main>
-          <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
-          <section id="vehiclesSelectors">
+          <section id="EnergyMixSelector" class="mainSections">
+            <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
+          </section>
+          <section id="vehiclesSelectors" class="mainSections">
             <div id="car1" class="vehicleSelectorUnit darkBorder">
               <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
             </div>
