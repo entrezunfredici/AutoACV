@@ -4,7 +4,7 @@ import './VehicleElem.css';
 import Vehicle from '../models';
 
 const VehicleElem = (props) => {
-    const { vehicle, handleReturnToList } = props;
+    const { vehicle, handleReturnToList, handleShowSources } = props;
 
     return (
         <div id="vehicleElemSection" className="lightBorder">
@@ -40,7 +40,7 @@ const VehicleElem = (props) => {
                 )}
                 <p>Impact de construction: {vehicle && vehicle.buildImpact} tonnes CO2</p>
                 <p>Puissance: {vehicle && vehicle.enginePower} chevaux</p>
-                <button className="classicButton">sources</button>
+                <button className="classicButton" onClick={handleShowSources}>sources</button>
             </div>
         </div>
     );

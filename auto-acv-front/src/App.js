@@ -41,7 +41,7 @@ class App extends Component {
         </header>
         <main>
           <section id="vehiclesSelectors">
-            <div id="car1" class="vehicleSelectorUnit">
+            <div id="car1" class="vehicleSelectorUnit darkBorder">
               <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
             </div>
             <div id="car2" class="vehicleSelectorUnit">

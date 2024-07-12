@@ -41,14 +41,17 @@
 /*border classes*/
 .lightBorder{
     border-color: var(--firstBorderColor);
+    border-width: 1px;
 }
 
 .copperBorder{
     border-color: var(--secondBorderColor);
+    border-width: 1px;
 }
 
 .darkBorder{
     border-color: var(--thirdBorderColor);
+    border-width: 1px;
 }
 
 /*theme classes*/
