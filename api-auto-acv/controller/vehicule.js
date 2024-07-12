@@ -25,9 +25,9 @@ exports.getVehiculeById = async (req, res) => {
 
 //controlleur pour ajouter un véhicule
 exports.addVehicule = async (req, res, next) => {
-    const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source} = req.body;
+    const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, useImpact, source} = req.body;
     try {
-        const vehicules = await vehiculeService.addVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source);
+        const vehicules = await vehiculeService.addVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, useImpact, source);
         if (!vehicules) {
             res.status(400).json({ error: "Le véhicule n'a pas été trouvé" });
         }

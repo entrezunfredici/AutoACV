@@ -25,6 +25,9 @@ module.exports = (instance) => {
         recycleImpact: {
             type: DataTypes.FLOAT,
         },
+        useImpact: {
+            type: DataTypes.FLOAT,
+        },
         technology: {
             type: DataTypes.STRING,
             allowNull: false

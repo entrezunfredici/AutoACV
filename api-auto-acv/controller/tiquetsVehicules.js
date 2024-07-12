@@ -14,7 +14,7 @@ exports.getTiquetsVehicules = async (req, res) => {
 exports.addTiquetVehicule = async (req, res) => {
     const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source, id_vehicule} = req.body;
     try {
-        const tiquetVehicule = await tiquetsVehiculesService.addTiquetVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source, id_vehicule);
+        const tiquetVehicule = await tiquetsVehiculesService.addTiquetVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, useImpact, source, id_vehicule);
         if(!tiquetVehicule){
             res.status(400).json({ error: "Le tiquet n'a pas été ajouté" });
         }

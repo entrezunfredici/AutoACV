@@ -3,6 +3,7 @@ import './App.css';
 import TopBar from './components/topBar/topBar'
 import VehicleSelector from './components/VehicleSelector/VehicleSelector';
 import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector';
+import Graph from './components/Graph/Graph';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -22,6 +23,7 @@ class App extends Component {
     energyMixes: [],
     powerSources: [],
     energyMix: null, //selected energy mix
+    colors: ["#FF6633", "#FFB399", "#FF33FF", "#FFFF99", "#00B3E6"]
   }
 
   componentDidMount(){
@@ -60,6 +62,9 @@ class App extends Component {
           <TopBar />
         </header>
         <main>
+          <section id="Graph" class="mainSections">
+            <Graph vehicles={this.state.vehicles} colors={this.state.colors} energyImpacts={22}/>
+          </section>
           <section id="EnergyMixSelector" class="mainSections">
             <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
           </section>

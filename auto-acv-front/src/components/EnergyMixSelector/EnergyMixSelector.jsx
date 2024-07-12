@@ -12,7 +12,7 @@ class EnergyMixSelector extends Component {
         this.setState({ energyMix: selectedEnergyMix });
     }
     
-    calculateKwhImpact = (energyMix) => {
+    calculateElectricityImpact = (energyMix) => {
         if (!energyMix) return 0;
 
         let sum = 0;
@@ -35,7 +35,7 @@ class EnergyMixSelector extends Component {
         const { energyMix } = this.state;
         const { energyMixes, powerSources } = this.props;
 
-        const kwhImpact = this.calculateKwhImpact(energyMix);
+        const elecImpact = this.calculateElectricityImpact(energyMix);
 
         return (
             <div id="energyMixSelector" className="classicFont">
@@ -51,7 +51,7 @@ class EnergyMixSelector extends Component {
                 </select>
                 <div id = "textSection">
                     <p>
-                        en moyenne {kwhImpact} g de CO² pa kWh 
+                        en moyenne {elecImpact} g de CO² pa kWh 
                     </p>
                 </div>
             </div>

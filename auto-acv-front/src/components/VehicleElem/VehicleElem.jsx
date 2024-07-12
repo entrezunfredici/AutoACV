@@ -38,7 +38,8 @@ const VehicleElem = (props) => {
                         Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 8.9).toFixed(2)} kwh/100km)
                     </p>
                 )}
-                <p>Impact de construction: {vehicle && vehicle.buildImpact} tonnes CO2</p>
+                <p>Impact de fabrication: {vehicle && vehicle.buildImpact} tonnes CO2</p>
+                <p>Impact direct à l'utilisation: {vehicle.useImpact} gCO2/100km</p>
                 <p>Puissance: {vehicle && vehicle.enginePower} chevaux</p>
                 <button className="classicButton classicSize" onClick={handleShowSources}>sources</button>
             </div>

@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import './vehicleSelector.css';
 import VehicleElem from '../VehicleElem/VehicleElem';
-import Vehicle from '../models';
 
 class VehicleSelector extends Component {
     state = {
@@ -83,7 +82,8 @@ class VehicleSelector extends Component {
                                             Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 8.9).toFixed(2)} kwh/100km)
                                         </p>
                                     )}
-                                    <p>Impact de construction: {vehicle.buildImpact} tonnes CO2</p>
+                                    <p>Impact de fabrication: {vehicle.buildImpact} tonnes CO2</p>
+                                    <p>Impact direct à l'utilisation: {vehicle.useImpact} gCO2/100km</p>
                                     <p>Puissance: {vehicle.enginePower} chevaux</p>
                                     <button className="classicButton classicSize" onClick={() => this.handleVehicleSelect(vehicle)}>select this vehicle</button>
                                 </div>

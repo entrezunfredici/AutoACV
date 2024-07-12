@@ -649,6 +649,9 @@ components:
         recycleImpact:
           type: "number"
           example: 2
+        useImpact:
+          type: "number"
+          example: 2
         technology:
           type: "string"
           example: "electrique"
@@ -749,6 +752,9 @@ components:
           type: number
           nullable: true
         recycleImpact:
+          type: number
+          nullable: true
+        useImpact:
           type: number
           nullable: true
         technology:
