@@ -185,6 +185,23 @@ paths:
           description: "Un champs essentiels n'est pas présent ou incorrect (password)"
         "404":
           description: "L'utilisateur n'a pas été trouvé"
+  /mixsEnergetiques:
+    get:
+      tags:
+        - "mixsEnergetiques"
+      summary: "Récupérer tous les mixs énergétiques"
+      operationId: getAllMixs
+      responses:
+        "200":
+          description: "Les mixs énergétiques sont retournés"
+          content:
+            application/json:
+              schema: 
+                type: array
+                items:
+                  $ref: '#/components/schemas/mixsEnergetiques'
+        "404":
+          description: "Mixs énergétiques non trouvés"
   /mixsEnergetiques/{country}:
     get: 
       tags:

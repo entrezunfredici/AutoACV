@@ -41,10 +41,8 @@ class VehicleSelector extends Component {
     }
 
     render() {
-        console.log(this.state.showVehicleList)
         const { vehicles } = this.props;
         const { classes } = this.props;
-        console.log(classes)
         return (
             <div id="vehicleSelector" className={classes}>
                 {this.state.showVehicle && (

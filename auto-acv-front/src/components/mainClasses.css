@@ -36,3 +36,11 @@
     color: var(--fontDark);
     padding: 5px 10px;
 }
+
+.classicSize{
+    font-size: 1.5em;
+}
+
+.xxlw{
+    width: 90%;
+}

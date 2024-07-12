@@ -1,5 +1,10 @@
 const { mixsEnergetiques } = require('../models');
 
+exports.getAllMixs = async () => {
+    console.log("test");
+    return await mixsEnergetiques.findAll();
+}
+
 //service retournant un mix energetique par le champs country
 exports.getMixByCountry = async (country_Mix) => {
     console.log(country_Mix);
