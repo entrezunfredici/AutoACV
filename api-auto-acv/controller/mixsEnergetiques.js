@@ -1,5 +1,17 @@
 const mixsEnergetiquesService = require('../service/mixsEnergetiques');
 
+exports.getAllMixs = async (req, res) => {
+    try {
+        const mixs = await mixsEnergetiquesService.getAllMixs();
+        if(!mixs){
+            res.status(400).json({ error: "mixs energetiques non trouvé" });
+        }
+        res.status(200).json({success: true, mixs});
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
 //controlleur pour récupérer un mix energetique par le champs country
 exports.getMixsByCountry = async (req, res) => {
     try {

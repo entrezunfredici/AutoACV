@@ -1,0 +1,19 @@
+@import url('../colors.css');
+@import url('../mainClasses.css');
+@import url('../VehicleElem/VehicleElem.css');
+
+#vehicleSelector{
+    width: 100%;
+    height: 100%;
+    padding-bottom:10px;
+}
+
+#vehicleList{
+    margin-top: 10px;
+}
+
+#vehicleAffiche{
+    width: 100%;
+    height: 100%;
+    padding-bottom:10px;
+}

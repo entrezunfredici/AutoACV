@@ -1,10 +1,40 @@
+@import url('./components/colors.css');
+@import url('./components/mainClasses.css');
+
 .App {
-  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.mainSections{
+  display: flex;
+  justify-content: space-between; /* Distributes space between the elements */
+  align-items: flex-start;
+  width: 90%;
+  height: 100%;
+  padding-left: 5%;
+  margin-top: 50px;
+}
+
+#car1{
+  margin-left: 0px;
+}
+
+#car2{
+  float: left;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.vehicleSelectorUnit{
+  width: 45%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
