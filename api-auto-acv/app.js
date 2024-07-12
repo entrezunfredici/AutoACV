@@ -17,6 +17,9 @@ app.use('/sourcesEnergies', powerSourcesRouter);
 //routes pour les utilisateurs
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
+//routes pour les mixsEnergetiques
+const mixsEnergetiquesRouter = require('./routers/mixsEnergetiques');
+app.use('/mixsEnergetiques', mixsEnergetiquesRouter);
 //middleware
 //Middleware to validate the request and response against the OpenAPI schema
 app.use(
@@ -27,9 +30,7 @@ app.use(
     })
 );
 
-//routes pour les mixsEnergetiques
-const mixsEnergetiquesRouter = require('./routers/mixsEnergetiques');
-app.use('/mixsEnergetiques', mixsEnergetiquesRouter);
+
 
 //routes pour les tiquetsVehicules
 const ticketsVehiculesRouter = require('./routers/tiquetsVehicules');
