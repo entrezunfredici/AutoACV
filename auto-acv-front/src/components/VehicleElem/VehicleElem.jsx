@@ -39,7 +39,7 @@ const VehicleElem = (props) => {
                     </p>
                 )}
                 <p>Impact de fabrication: {vehicle && vehicle.buildImpact} tonnes CO2</p>
-                <p>Impact direct à l'utilisation: {vehicle.useImpact} gCO2/100km</p>
+                <p>Impact direct à l'utilisation: {vehicle.useImpact} gCO2/km</p>
                 <p>Puissance: {vehicle && vehicle.enginePower} chevaux</p>
                 <button className="classicButton classicSize" onClick={handleShowSources}>sources</button>
             </div>

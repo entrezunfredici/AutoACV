@@ -83,7 +83,7 @@ class VehicleSelector extends Component {
                                         </p>
                                     )}
                                     <p>Impact de fabrication: {vehicle.buildImpact} tonnes CO2</p>
-                                    <p>Impact direct à l'utilisation: {vehicle.useImpact} gCO2/100km</p>
+                                    <p>Impact direct à l'utilisation: {vehicle.useImpact} gCO2/km</p>
                                     <p>Puissance: {vehicle.enginePower} chevaux</p>
                                     <button className="classicButton classicSize" onClick={() => this.handleVehicleSelect(vehicle)}>select this vehicle</button>
                                 </div>

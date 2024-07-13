@@ -12,7 +12,7 @@ class EnergyMixSelector extends Component {
         this.setState({ energyMix: selectedEnergyMix });
     }
     
-    calculateElectricityImpact = (energyMix) => {
+    calculateElectricityImpact = (energyMix, powerSources) => {
         if (!energyMix) return 0;
 
         let sum = 0;
@@ -20,7 +20,7 @@ class EnergyMixSelector extends Component {
 
         for (let key in energyMix) {
             if (energyMix.hasOwnProperty(key) && typeof energyMix[key] === 'number') {
-                const powerSource = this.props.powerSources.find(powerSource => powerSource.powerSource_name === key);
+                const powerSource = powerSources.find(powerSource => powerSource.powerSource_name === key);
                 if (powerSource) {
                     sum += (energyMix[key] * powerSource.powerSource_impact);
                     count += energyMix[key];
@@ -35,7 +35,7 @@ class EnergyMixSelector extends Component {
         const { energyMix } = this.state;
         const { energyMixes, powerSources } = this.props;
 
-        const elecImpact = this.calculateElectricityImpact(energyMix);
+        const elecImpact = this.calculateElectricityImpact(energyMix, powerSources);
 
         return (
             <div id="energyMixSelector" className="classicFont">

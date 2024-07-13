@@ -23,7 +23,10 @@ class App extends Component {
     energyMixes: [],
     powerSources: [],
     energyMix: null, //selected energy mix
-    colors: ["#FF6633", "#FFB399", "#FF33FF", "#FFFF99", "#00B3E6"]
+    colors: [
+      getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),
+      getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim()
+    ]
   }
 
   componentDidMount(){
@@ -63,7 +66,7 @@ class App extends Component {
         </header>
         <main>
           <section id="Graph" class="mainSections">
-            <Graph vehicles={this.state.vehicles} colors={this.state.colors} energyImpacts={22}/>
+            <Graph vehicles={this.state.vehicles} colors={"etrets"} energyImpacts={[22,0]}/>
           </section>
           <section id="EnergyMixSelector" class="mainSections">
             <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
