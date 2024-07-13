@@ -6,6 +6,7 @@ import TopBar from './components/topBar/topBar'
 import VehicleSelector from './components/VehicleSelector/VehicleSelector';
 import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector';
 import SignInForm from './components/forms/signInForm';
+import SignUpForm from './components/forms/signUpForm';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -82,6 +83,12 @@ class App extends Component {
                 <main>
                   <TopBar />
                   <SignInForm />
+                </main>
+              } />
+              <Route path="/register" element={
+                <main>
+                  <TopBar />
+                  <SignUpForm />
                 </main>
               } />
             </Routes>

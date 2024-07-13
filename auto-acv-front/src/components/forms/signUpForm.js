@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import * as yup from 'yup';
 import './form.css';
 //Ici le schéma de validation de notre formulaire
@@ -14,7 +15,10 @@ function SignUpForm() {
         password: '',
         mail: '',
     });
+
     const [errors, setErrors] = useState({});
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setForm({
@@ -39,7 +43,7 @@ function SignUpForm() {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Réponse reçue:', data);
+                navigate('/login');
             })
             .catch(error => {
                 console.error('Erreur lors de l\'ajout de l\'utilisateur:', error);
@@ -54,24 +58,27 @@ function SignUpForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Username :&nbsp;
-                <input type="text" name="username" value={form.username} onChange={handleChange} />
-                {errors.username && <p>{errors.username}</p>}
-            </label>
-            <label>
-                Mail :&nbsp;
-                <input type="text" name="mail" value={form.mail} onChange={handleChange} />
-                {errors.mail && <p>{errors.mail}</p>}
-            </label>
-            <label>
-                Password :&nbsp;
-                <input type="password" name="password" value={form.password} onChange={handleChange} />
-                {errors.password && <p>{errors.password}</p>}
-            </label>
-            <button type="submit">Sign Up</button>
-        </form>
+        <div className="form">
+            <h1>Inscription</h1>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Username :&nbsp;
+                    <input type="text" name="username" value={form.username} onChange={handleChange} />
+                    {errors.username && <p>{errors.username}</p>}
+                </label>
+                <label>
+                    Mail :&nbsp;
+                    <input type="text" name="mail" value={form.mail} onChange={handleChange} />
+                    {errors.mail && <p>{errors.mail}</p>}
+                </label>
+                <label>
+                    Password :&nbsp;
+                    <input type="password" name="password" value={form.password} onChange={handleChange} />
+                    {errors.password && <p>{errors.password}</p>}
+                </label>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
     )
 }
 

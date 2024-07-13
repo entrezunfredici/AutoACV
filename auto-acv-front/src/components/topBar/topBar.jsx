@@ -20,7 +20,7 @@ function TopBar(){
                     //Si l'utilisateur n'est pas connecté
                     <>
                         <Link to="/login"><button id="login_button" class="topBar_button">log in</button></Link>
-                        <button id="register_button" class="topBar_button">register</button>
+                        <Link to="/register"><button id="register_button" class="topBar_button">register</button></Link>
                     </>
                 )}
             </div>
