@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './form.css';
 
 /**
@@ -16,6 +17,8 @@ function SignInForm() {
     });
 
   const [errorMessage, setErrorMessage] = useState('');
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({
@@ -45,7 +48,7 @@ function SignInForm() {
         })
         .then(data => {
             localStorage.setItem('token', data.token);
-            /*TODO: redirect to the home page*/
+            navigate('/');
         })
         .catch(error => {
             setErrorMessage(error.message);
@@ -56,7 +59,9 @@ function SignInForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <h1>Connexion</h1>
+      <form onSubmit={handleSubmit}>
         <label>
             Username :&nbsp;
             <input type="text" name="username" value={form.username} onChange={handleChange} />
@@ -68,6 +73,7 @@ function SignInForm() {
         <button type="submit">Se connecter</button>
         {errorMessage && <p>{errorMessage}</p>}
     </form>
+    </div>
   );
 }
 
