@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import './App.css';
 import TopBar from './components/topBar/topBar'
 import VehicleSelector from './components/VehicleSelector/VehicleSelector';
 import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector';
+import SignInForm from './components/forms/signInForm';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -56,22 +59,34 @@ class App extends Component {
     return (
       //<div className="App lightTheme">
       <div className="App darkTheme">
-        <header className="App-header">
-          <TopBar />
-        </header>
-        <main>
-          <section id="EnergyMixSelector" class="mainSections">
-            <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
-          </section>
-          <section id="vehiclesSelectors" class="mainSections">
-            <div id="car1" class="vehicleSelectorUnit darkBorder">
-              <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
-            </div>
-            <div id="car2" class="vehicleSelectorUnit">
-              <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"}/>
-            </div>
-          </section>
-        </main>
+        <body className="App-header">
+          <Router>
+            <Routes>
+              <Route path="/" element={
+                <main>
+                  <TopBar />
+                  <section id="EnergyMixSelector" class="mainSections">
+                    <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
+                  </section>
+                  <section id="vehiclesSelectors" class="mainSections">
+                    <div id="car1" class="vehicleSelectorUnit darkBorder">
+                      <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
+                    </div>
+                    <div id="car2" class="vehicleSelectorUnit">
+                      <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"}/>
+                    </div>
+                  </section>
+                </main>
+              } />
+              <Route path="/login" element={
+                <main>
+                  <TopBar />
+                  <SignInForm />
+                </main>
+              } />
+            </Routes>
+          </Router>
+        </body>
         <footer>
         </footer>
       </div>
