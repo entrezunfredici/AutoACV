@@ -4,6 +4,16 @@ import './EnergyMixSelector.css';
 class EnergyMixSelector extends Component {
     state = {
         energyMix: null, // selected energy mix
+        elecImpact: 0,   // calculated electricity impact
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.energyMix !== this.state.energyMix) {
+            const elecImpact = this.calculateElectricityImpact(this.state.energyMix, this.props.powerSources);
+            this.setState({ elecImpact }, () => {
+                this.props.handleElectrictyImpact(elecImpact);
+            });
+        }
     }
 
     handleEnergyMixChange = (event) => {
@@ -11,7 +21,7 @@ class EnergyMixSelector extends Component {
         const selectedEnergyMix = this.props.energyMixes.find(energyMix => energyMix.country === selectedCountry);
         this.setState({ energyMix: selectedEnergyMix });
     }
-    
+
     calculateElectricityImpact = (energyMix, powerSources) => {
         if (!energyMix) return 0;
 
@@ -32,10 +42,8 @@ class EnergyMixSelector extends Component {
     }
 
     render() {
-        const { energyMix } = this.state;
-        const { energyMixes, powerSources } = this.props;
-
-        const elecImpact = this.calculateElectricityImpact(energyMix, powerSources);
+        const { energyMixes } = this.props;
+        const { elecImpact } = this.state;
 
         return (
             <div id="energyMixSelector" className="classicFont">
@@ -49,7 +57,7 @@ class EnergyMixSelector extends Component {
                         <option key={energyMix.country} value={energyMix.country}>{energyMix.country}</option>
                     ))}
                 </select>
-                <div id = "textSection">
+                <div id="textSection">
                     <p>
                         en moyenne {elecImpact} g de CO² pa kWh 
                     </p>

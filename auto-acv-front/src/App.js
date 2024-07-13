@@ -20,9 +20,10 @@ class App extends Component {
   state = {
     //yourTable: [],
     vehicles: [],
+    selectedVehicles: [],
     energyMixes: [],
     powerSources: [],
-    energyMix: null, //selected energy mix
+    electrictyImpact: 0, //selected energy mix
     colors: [
       getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),
       getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim()
@@ -30,7 +31,6 @@ class App extends Component {
   }
 
   componentDidMount(){
-
     //get vehicules list
     fetch('http://localhost:8000/vehicules').then(response => response.json()).then(data => {
       if (Array.isArray(data.vehicules)) {
@@ -57,7 +57,41 @@ class App extends Component {
     });
   }
 
+  handleVehicleSelect = (index, vehicle) => {
+    const selectedVehicles = [...this.state.selectedVehicles];
+    selectedVehicles[index] = vehicle;
+    this.setState({ selectedVehicles });
+  }
+
+  handleElectrictyImpact = (electrictyImpact) => {
+    this.setState({ electrictyImpact });
+  }
+
+  getEnergyImpact = (vehicles) => {
+    let energyImpact = [0,0];
+    for (let i=0; i<vehicles.length; i++){
+      switch(vehicles[i].technology){
+        case "electric":
+          energyImpact[i] = this.state.electrictyImpact||0;
+          break;
+        case "gasoline" || "petrol" || "hybrid":
+          energyImpact[i] = 0;
+          break;
+        case "diesel" || "hybrid-diesel":
+          energyImpact[i] = 0;
+          break;
+        case "bioethanol":
+          energyImpact[i] = 0;
+          break;
+        default:
+          energyImpact[i] = 0;
+      }
+    }
+    return energyImpact;
+  }
+
   render() {
+    let energyImpacts = this.getEnergyImpact(this.state.selectedVehicles);
     return (
       //<div className="App lightTheme">
       <div className="App darkTheme">
@@ -66,17 +100,17 @@ class App extends Component {
         </header>
         <main>
           <section id="Graph" class="mainSections">
-            <Graph vehicles={this.state.vehicles} colors={"etrets"} energyImpacts={[22,0]}/>
+            <Graph vehicles={this.state.selectedVehicles} colors={this.state.colors} energyImpacts={energyImpacts}/> 
           </section>
           <section id="EnergyMixSelector" class="mainSections">
-            <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
+            <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} handleElectrictyImpact={this.handleElectrictyImpact}/>
           </section>
           <section id="vehiclesSelectors" class="mainSections">
             <div id="car1" class="vehicleSelectorUnit darkBorder">
-              <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
+              <VehicleSelector vehicles={this.state.vehicles} classes={"primary"} onVehicleSelect={this.handleVehicleSelect} index={0}/>
             </div>
             <div id="car2" class="vehicleSelectorUnit">
-              <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"}/>
+              <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"} onVehicleSelect={this.handleVehicleSelect} index={1}/>
             </div>
           </section>
         </main>

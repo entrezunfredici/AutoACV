@@ -40,8 +40,7 @@ class VehicleSelector extends Component {
     }
 
     render() {
-        const { vehicles } = this.props;
-        const { classes } = this.props;
+        const { vehicles, classes, onVehicleSelect, index } = this.props;
         return (
             <div id="vehicleSelector" className={classes}>
                 {this.state.showVehicle && (
@@ -58,6 +57,7 @@ class VehicleSelector extends Component {
                                 </div>
                                 <div className="separator darkBorder"></div>
                                 <div id="vehicleStats" className="classicFont">
+                                    <p>Type: {vehicle.type}</p>
                                     <p>Technologie: {vehicle.technology}</p>
                                     {vehicle.technology === "electric" && (
                                         <p>Consommation: {vehicle.consumption} kwh/100km</p>
@@ -70,6 +70,11 @@ class VehicleSelector extends Component {
                                     {(vehicle.technology === "gasoline" || vehicle.technology === "petrol" || vehicle.technology === "hybrid") && (
                                         <p>
                                             Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 8.9).toFixed(2)} kwh/100km)
+                                        </p>
+                                    )}
+                                    {(vehicle.technology === "bioethanol" || vehicle.technology === "bioethanol-hybrid") && (
+                                        <p>
+                                            Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 6.33).toFixed(2)} kwh/100km)
                                         </p>
                                     )}
                                     {vehicle.technology === "rechargeable-hybrid-diesel" && (
@@ -85,7 +90,10 @@ class VehicleSelector extends Component {
                                     <p>Impact de fabrication: {vehicle.buildImpact} tonnes CO2</p>
                                     <p>Impact direct à l'utilisation: {vehicle.useImpact} gCO2/km</p>
                                     <p>Puissance: {vehicle.enginePower} chevaux</p>
-                                    <button className="classicButton classicSize" onClick={() => this.handleVehicleSelect(vehicle)}>select this vehicle</button>
+                                    <button className="classicButton classicSize" onClick={() => {
+                                        this.handleVehicleSelect(vehicle); 
+                                        onVehicleSelect(index, vehicle);
+                                    }}>select this vehicle</button>
                                 </div>
                             </div>
                         ))}

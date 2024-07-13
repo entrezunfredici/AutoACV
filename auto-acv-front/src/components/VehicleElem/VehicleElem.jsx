@@ -14,6 +14,7 @@ const VehicleElem = (props) => {
             </div>
             <div className="separator darkBorder"></div>
             <div id="vehicleStats" className="classicFont">
+                <p>Type: {vehicle && vehicle.type}</p>
                 <p>Technologie: {vehicle && vehicle.technology}</p>
                 {vehicle && vehicle.technology === "electric" && (
                     <p>Consommation: {vehicle.consumption} kwh/100km</p>
