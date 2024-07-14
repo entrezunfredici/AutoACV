@@ -8,15 +8,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//Middleware to validate the request and response against the OpenAPI schema
-app.use(
-    OpenApiValidalidator.middleware({
-        apiSpec: './openApi.yml',
-        validateResponses: true,
-        ignoreUndocumented : true
-    })
-);
-
 //routes pour les véhicules
 const vehiculesRouter = require('./routers/vehicles');
 app.use('/vehicules', vehiculesRouter);
