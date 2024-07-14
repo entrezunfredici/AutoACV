@@ -1,39 +1,40 @@
 require('dotenv').config();
-const express = require('express')
-const OpenApiValidalidator = require('express-openapi-validator');
-const app = express()
+const express = require('express');
+const OpenApiValidator = require('express-openapi-validator');
 const cors = require('cors');
 
+const app = express();
+
 app.use(cors());
+app.use(express.json());
 
-app.use(express.json())
-
-//routes pour les véhicules
+// Routes pour les véhicules
 const vehiculesRouter = require('./routers/vehicles');
 app.use('/vehicules', vehiculesRouter);
-//routes pour les sources d'énergie
+
+// Routes pour les sources d'énergie
 const powerSourcesRouter = require('./routers/powerSources');
 app.use('/sourcesEnergies', powerSourcesRouter);
-//routes pour les utilisateurs
+
+// Routes pour les utilisateurs
 const usersRouter = require('./routers/users');
 app.use('/users', usersRouter);
-//routes pour les mixsEnergetiques
+
+// Routes pour les mixsEnergetiques
 const mixsEnergetiquesRouter = require('./routers/mixsEnergetiques');
 app.use('/mixsEnergetiques', mixsEnergetiquesRouter);
-//middleware
-//Middleware to validate the request and response against the OpenAPI schema
-app.use(
-    OpenApiValidalidator.middleware({
-        apiSpec: './openApi.yml',
-        validateResponses: true,
-        ignoreUndocumented : true
-    })
-);
 
-
-
-//routes pour les tiquetsVehicules
+// Routes pour les tiquetsVehicules
 const ticketsVehiculesRouter = require('./routers/tiquetsVehicules');
 app.use('/tiquetsVehicules', ticketsVehiculesRouter);
 
-module.exports = app
+// Middleware to validate the request and response against the OpenAPI schema
+app.use(
+    OpenApiValidator.middleware({
+        apiSpec: './openApi.yml',
+        validateResponses: true,
+        ignoreUndocumented: true
+    })
+);
+
+module.exports = app;

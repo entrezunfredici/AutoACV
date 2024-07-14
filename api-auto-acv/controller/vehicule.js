@@ -25,9 +25,9 @@ exports.getVehiculeById = async (req, res) => {
 
 //controlleur pour ajouter un véhicule
 exports.addVehicule = async (req, res, next) => {
-    const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, useImpact, source} = req.body;
+    const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source} = req.body;
     try {
-        const vehicules = await vehiculeService.addVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, useImpact, source);
+        const vehicules = await vehiculeService.addVehicule(brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source);
         if (!vehicules) {
             res.status(400).json({ error: "Le véhicule n'a pas été trouvé" });
         }
@@ -40,9 +40,9 @@ exports.addVehicule = async (req, res, next) => {
 //contrôle pour modifier un véhicule
 exports.updateVehicule = async (req, res, next) => {
     const id=req.params.id;
-    const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source} = req.body;
+    const {brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source} = req.body;
     try {
-        const vehicules = await vehiculeService.updateVehicule(id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source);
+        const vehicules = await vehiculeService.updateVehicule(id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source);
         if (!vehicules) {
             res.status(404).json({ error: "un champ essenciel n'est pas présent ou incorrect" });
         }

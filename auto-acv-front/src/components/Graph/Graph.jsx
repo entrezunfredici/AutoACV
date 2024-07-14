@@ -21,13 +21,13 @@ class Graph extends Component {
     }
 
     renderChart() {
-        const { vehicles, colors, energyImpacts } = this.props;
+        const { vehicles, colors, energyImpacts, totaldistance, Δdistance, dutyCycleMode} = this.props;
 
         if (!vehicles || vehicles.length === 0 || !vehicles[0] || !vehicles[1]) {
         return;
     }
 
-    let values = this.calculateCO2Impact(vehicles, energyImpacts, [500000, 500000], 500000, 1000);
+    let values = this.calculateCO2Impact(vehicles, energyImpacts, totaldistance, Δdistance, dutyCycleMode);
 
     const data = {
         labels: values.map(value => value.distance),
@@ -71,25 +71,41 @@ class Graph extends Component {
     }
 
     const ctx = this.chartRef.current.getContext('2d');
-        this.chart = new ChartJS(ctx, config); // Utilisez le nom renommé ici
+        this.chart = new ChartJS(ctx, config);
     }
 
-
-    calculateCO2Impact = (vehicles, energiesImpact, vehiclesDutyCycle, totaldistance, Δdistance) => {
-        if (!vehicles || !energiesImpact || !vehiclesDutyCycle)return 0;
+    calculateCO2Impact = (vehicles, energiesImpact, totaldistance, Δdistance, dutyCycleMode) => {
+        if (!vehicles || !energiesImpact)return 0;
         if(!Δdistance)Δdistance=1000;
         if(!totaldistance)totaldistance=500000;
 
         let vehicleImpact = [];
-        let defaultImpacts = [vehicles[0].buildImpact*1000, vehicles[1].buildImpact*1000];
-        for (let i = 0; i < totaldistance / Δdistance; i++){
+        let lifecycles = [0, 0];
+        for (let i = 0; i <= (totaldistance) / Δdistance; i++){
+            let defaultImpacts = [0,0];
+            if((lifecycles[0]+1)*vehicles[0].dutyCycle <= i*Δdistance){
+                lifecycles[0]++;
+            }
+            if((lifecycles[1]+1)*vehicles[1].dutyCycle <= i*Δdistance){
+                lifecycles[1]++;
+            }
+            if(dutyCycleMode){
+                defaultImpacts = [
+                    vehicles[0].buildImpact*1000+lifecycles[0]*((vehicles[0].recycleImpact)*1000), 
+                    vehicles[1].buildImpact*1000+lifecycles[1]*((vehicles[1].recycleImpact)*1000)
+                ];
+            }else{
+                defaultImpacts = [
+                    vehicles[0].buildImpact*1000+lifecycles[0]*((vehicles[0].buildImpact+vehicles[0].recycleImpact)*1000), 
+                    vehicles[1].buildImpact*1000+lifecycles[1]*((vehicles[1].buildImpact+vehicles[1].recycleImpact)*1000)
+                ];
+            }
             vehicleImpact.push(
-                {
-                    "distance": (i*Δdistance),
-                    [vehicles[0].brand + " " + vehicles[0].model + " " + vehicles[0].motorisation]: (i*Δdistance) * (((vehicles[0].consumption/100) * energiesImpact[0] + vehicles[0].useImpact)/1000) + defaultImpacts[0],
-                    [vehicles[1].brand + " " + vehicles[1].model + " " + vehicles[1].motorisation]: (i*Δdistance) * (((vehicles[1].consumption/100) * energiesImpact[1] + vehicles[1].useImpact)/1000) + defaultImpacts[1],
-                }
-            );
+            {
+                "distance": (i*Δdistance),
+                [vehicles[0].brand + " " + vehicles[0].model + " " + vehicles[0].motorisation]: (i*Δdistance) * (((vehicles[0].consumption/100) * energiesImpact[0] + vehicles[0].useImpact)/1000) + defaultImpacts[0],
+                [vehicles[1].brand + " " + vehicles[1].model + " " + vehicles[1].motorisation]: (i*Δdistance) * (((vehicles[1].consumption/100) * energiesImpact[1] + vehicles[1].useImpact)/1000) + defaultImpacts[1],
+            });
         }
         return vehicleImpact;
     }
@@ -97,7 +113,6 @@ class Graph extends Component {
     render() {
         const { vehicles } = this.props;
 
-        // Assurez-vous que vehicles existe et contient au moins un élément
         if (!vehicles || vehicles.length === 0 || !vehicles[0] || !vehicles[1]) {
             return <div>No vehicles available</div>;
         }

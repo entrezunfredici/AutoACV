@@ -649,6 +649,9 @@ components:
         recycleImpact:
           type: "number"
           example: 2
+        dutyCycle:
+          type: number
+          nullable: true
         useImpact:
           type: "number"
           example: 2
@@ -752,6 +755,9 @@ components:
           type: number
           nullable: true
         recycleImpact:
+          type: number
+          nullable: true
+        dutyCycle:
           type: number
           nullable: true
         useImpact:

@@ -24,9 +24,8 @@ class App extends Component {
     energyMixes: [],
     powerSources: [],
     electrictyImpact: 0,
-    gazolineImpact: 0,
-    dieselImpact: 0,
-    bioethanolImpact: 0,
+    totalDistance: 500000,
+    ΔDistance: 1000,
     colors: [
       getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),
       getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim()
@@ -80,6 +79,14 @@ class App extends Component {
     this.setState({ electrictyImpact });
   }
 
+  setTotalDistance = (totalDistance) => {
+    this.setState({ totalDistance });
+  }
+
+  setΔDistance = (ΔDistance) => {
+    this.setState({ ΔDistance });
+  }
+
   getEnergyImpact = (vehicles) => {
     let energyImpact = [0,0];
     for (let i=0; i<vehicles.length; i++){
@@ -92,12 +99,10 @@ class App extends Component {
       }
       if (vehicles[i].technology === "electric"){
         energyImpact[i] = this.state.electrictyImpact;
-        console.log(energyImpact[i]);
       }else{
         for (let technology in carTechnologies){
           if (vehicles[i].technology === technology){
             energyImpact[i] = this.fetchEnergyImpactByEnergyName(carTechnologies[technology]);
-            console.log(energyImpact[i]);
           }
         }
       }
@@ -106,6 +111,15 @@ class App extends Component {
   }
 
   render() {
+
+    const handleTotalDistanceChange = (event) => {
+      this.setTotalDistance(Number(event.target.value));
+    };
+
+    const handleDeltaDistanceChange = (event) => {
+      this.setΔDistance(Number(event.target.value));
+    };
+
     let energyImpacts = this.getEnergyImpact(this.state.selectedVehicles);
     return (
       //<div className="App lightTheme">
@@ -114,8 +128,18 @@ class App extends Component {
           <TopBar />
         </header>
         <main>
-          <section id="Graph" class="mainSections">
-            <Graph vehicles={this.state.selectedVehicles} colors={this.state.colors} energyImpacts={energyImpacts}/> 
+        <section className="mainSections">
+          <label >
+            Total Distance: 
+            <input type="number" class="classicSize" value={this.state.totalDistance} onChange={handleTotalDistanceChange} />
+          </label>
+          <label>
+            Δ Distance: 
+            <input type="number" class="classicSize"  value={this.state.ΔDistance} onChange={handleDeltaDistanceChange} />
+          </label>
+        </section>
+          <section id="Graph" className="mainSections">
+            <Graph vehicles={this.state.selectedVehicles} colors={this.state.colors} energyImpacts={energyImpacts} totaldistance={this.state.totalDistance} Δdistance={this.state.ΔDistance} dutyCycleMode={false}/>
           </section>
           <section id="EnergyMixSelector" class="mainSections">
             <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} handleElectrictyImpact={this.handleElectrictyImpact}/>

@@ -48,13 +48,13 @@ CREATE TABLE `vehicles` (
 -- Dumping data for table `vehicles`
 --
 
-INSERT INTO `vehicles` (`id_Vehicules`, `brand`, `motorisation`, `consumption`, `buildImpact`, `recycleImpact`, `useImpact`, `technology`, `type`, `source`, `enginePower`, `model`, `createdAt`, `updatedAt`) VALUES
-(2, 'Tesla', 'grande autonomie AWD', 18.7, 11.5, 0, 0, 'electric', 'berline', 'mes sources sonthttps://www.tesla.com/fr_fr/models https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique', 670, 'Model S (phase 3)', '2024-07-12 14:24:25', '2024-07-12 14:24:25'),
-(3, 'Toyota', 'XW30', 40.05, 2.3, 1.1, 89, 'hybrid', 'Sedan', 'Official Report', 136, 'Prius', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(4, 'Tesla', '60D', 16.9, 3, 0.8, 0, 'electric', 'SUV', 'Manufacturer and wikipedia https://fr.wikipedia.org/wiki/Tesla_Model_X', 332, 'Model X (phase 1)', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(5, 'Ford', 'V8, 4,6 L', 91.29, 4.2, 2.5, 250, 'diesel', 'Truck', 'Industry Analysis', 248, 'F-150', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(6, 'BMW', '', 62.3, 3.5, 1.7, 230, 'petrol', 'Coupe', 'Journal Review', 220, 'M4', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(7, 'Nissan', '', 10.75, 2.8, 1, 0, 'electric', 'Hatchback', 'Environmental Study and wikipedia= https://fr.wikipedia.org/wiki/Nissan_Leaf', 110, 'Leaf ZE0', '2024-06-19 10:00:00', '2024-06-19 10:00:00');
+INSERT INTO `vehicles` (`id_Vehicules`, `brand`, `motorisation`, `consumption`, `buildImpact`, `recycleImpact`, `dutyCycle`, `useImpact`, `technology`, `type`, `source`, `enginePower`, `model`, `createdAt`, `updatedAt`) VALUES
+(1, 'Tesla', 'grande autonomie AWD', 18.7, 11.5, 0, 500000, 0, 'electric', 'berline', 'mes sources sonthttps://www.tesla.com/fr_fr/models https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique', 670, 'Model S (phase 3)', '2024-07-12 14:24:25', '2024-07-12 14:24:25'),
+(2, 'Toyota', 'XW30', 40.05, 2.3, 1.1, 500000, 89, 'hybrid', 'Sedan', 'Official Report', 136, 'Prius', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(3, 'Tesla', '60D', 16.9, 3, 0.8, 500000, 0, 'electric', 'SUV', 'Manufacturer and wikipedia https://fr.wikipedia.org/wiki/Tesla_Model_X', 332, 'Model X (phase 1)', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(4, 'Ford', 'V8, 4,6 L', 91.29, 4.2, 2.5, 500000, 250, 'diesel', 'Truck', 'Industry Analysis', 248, 'F-150', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(5, 'BMW', '', 62.3, 3.5, 1.7, 500000, 230, 'petrol', 'Coupe', 'Journal Review', 220, 'M4', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(6, 'Nissan', '', 10.75, 2.8, 1, 500000, 0, 'electric', 'Hatchback', 'Environmental Study and wikipedia= https://fr.wikipedia.org/wiki/Nissan_Leaf', 110, 'Leaf ZE0', '2024-06-19 10:00:00', '2024-06-19 10:00:00');
 
 --
 -- Indexes for dumped tables

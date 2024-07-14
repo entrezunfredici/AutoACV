@@ -6,13 +6,14 @@ exports.getTiquetsVehicules = async (req, res) => {
 }
 
 //service permettant d'ajouter un tiquet de véhicule
-exports.addTiquetVehicule = async (brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, useImpact, source, id_vehicule) => {
+exports.addTiquetVehicule = async (brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source, id_vehicule) => {
     return await tiquetsVehicules.create({
         brand:brand, 
         motorisation:motorisation, 
         consumption:consumption, 
         buildImpact:buildImpact, 
         recycleImpact:recycleImpact, 
+        dutyCycle:dutyCycle,
         useImpact:useImpact,
         technology:technology, 
         type:type, 
