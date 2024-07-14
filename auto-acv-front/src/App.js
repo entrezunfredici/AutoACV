@@ -128,71 +128,57 @@ class App extends Component {
     return (
       //<div className="App lightTheme">
       <div className="App darkTheme">
-        <body className="App-header">
-          <Router>
-            <Routes>
-              <Route path="/" element={
-                <main>
+        <Router>
+          <Routes>
+            <Route path="/" element={
+              <main>
+                <header className="App-header">
                   <TopBar />
+                </header>
+                <main>
+                <section className="mainSections">
+                  <label >
+                    Total Distance: 
+                    <input type="number" class="classicSize" value={this.state.totalDistance} onChange={handleTotalDistanceChange} />
+                  </label>
+                  <label>
+                    Δ Distance: 
+                    <input type="number" class="classicSize"  value={this.state.ΔDistance} onChange={handleDeltaDistanceChange} />
+                  </label>
+                </section>
+                  <section id="Graph" className="mainSections">
+                    <Graph vehicles={this.state.selectedVehicles} colors={this.state.colors} energyImpacts={energyImpacts} totaldistance={this.state.totalDistance} Δdistance={this.state.ΔDistance} dutyCycleMode={false}/>
+                  </section>
                   <section id="EnergyMixSelector" class="mainSections">
-                    <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
+                    <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} handleElectrictyImpact={this.handleElectrictyImpact}/>
                   </section>
                   <section id="vehiclesSelectors" class="mainSections">
                     <div id="car1" class="vehicleSelectorUnit darkBorder">
-                      <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
+                      <VehicleSelector vehicles={this.state.vehicles} classes={"primary"} onVehicleSelect={this.handleVehicleSelect} index={0}/>
                     </div>
                     <div id="car2" class="vehicleSelectorUnit">
-                      <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"}/>
+                      <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"} onVehicleSelect={this.handleVehicleSelect} index={1}/>
                     </div>
                   </section>
                 </main>
-              } />
-              <Route path="/login" element={
-                <main>
-                  <TopBar />
-                  <SignInForm />
-                </main>
-              } />
-              <Route path="/register" element={
-                <main>
-                  <TopBar />
-                  <SignUpForm />
-                </main>
-              } />
-            </Routes>
-          </Router>
-        </body>
-        <header className="App-header">
-          <TopBar />
-        </header>
-        <main>
-        <section className="mainSections">
-          <label >
-            Total Distance: 
-            <input type="number" class="classicSize" value={this.state.totalDistance} onChange={handleTotalDistanceChange} />
-          </label>
-          <label>
-            Δ Distance: 
-            <input type="number" class="classicSize"  value={this.state.ΔDistance} onChange={handleDeltaDistanceChange} />
-          </label>
-        </section>
-          <section id="Graph" className="mainSections">
-            <Graph vehicles={this.state.selectedVehicles} colors={this.state.colors} energyImpacts={energyImpacts} totaldistance={this.state.totalDistance} Δdistance={this.state.ΔDistance} dutyCycleMode={false}/>
-          </section>
-          <section id="EnergyMixSelector" class="mainSections">
-            <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} handleElectrictyImpact={this.handleElectrictyImpact}/>
-          </section>
-          <section id="vehiclesSelectors" class="mainSections">
-            <div id="car1" class="vehicleSelectorUnit darkBorder">
-              <VehicleSelector vehicles={this.state.vehicles} classes={"primary"} onVehicleSelect={this.handleVehicleSelect} index={0}/>
-            </div>
-            <div id="car2" class="vehicleSelectorUnit">
-              <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"} onVehicleSelect={this.handleVehicleSelect} index={1}/>
-            </div>
-          </section>
-        </main>
-        <footer>
-        </footer>
+                <footer>
+                </footer>
+              </main>
+            } />
+            <Route path="/login" element={
+              <main>
+                <TopBar />
+                <SignInForm />
+              </main>
+            } />
+            <Route path="/register" element={
+              <main>
+                <TopBar />
+                <SignUpForm />
+              </main>
+            } />
+          </Routes>
+        </Router>
       </div>
     );
   }
