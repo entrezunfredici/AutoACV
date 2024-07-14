@@ -64,27 +64,27 @@ class VehicleSelector extends Component {
                                     )}
                                     {(vehicle.technology === "diesel" || vehicle.technology === "hybrid-diesel") && (
                                         <p>
-                                            Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 10.74).toFixed(2)} kwh/100km)
+                                            Consommation: {(vehicle.consumption/10.74).toFixed(2)} l/100km (équivalent {vehicle.consumption.toFixed(2)} kwh/100km)
                                         </p>
                                     )}
                                     {(vehicle.technology === "gasoline" || vehicle.technology === "petrol" || vehicle.technology === "hybrid") && (
                                         <p>
-                                            Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 8.9).toFixed(2)} kwh/100km)
+                                            Consommation: {(vehicle.consumption/8.9).toFixed(2)} l/100km (équivalent {vehicle.consumption.toFixed(2)} kwh/100km)
                                         </p>
                                     )}
                                     {(vehicle.technology === "bioethanol" || vehicle.technology === "bioethanol-hybrid") && (
                                         <p>
-                                            Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 6.33).toFixed(2)} kwh/100km)
+                                            Consommation: {(vehicle.consumption/6.33).toFixed(2)} l/100km (équivalent {vehicle.consumption.toFixed(2)} kwh/100km)
                                         </p>
                                     )}
                                     {vehicle.technology === "rechargeable-hybrid-diesel" && (
                                         <p>
-                                            Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 10.74).toFixed(2)} kwh/100km)
+                                            Consommation: {(vehicle.consumption/10.74).toFixed(2)} l/100km (équivalent {vehicle.consumption.toFixed(2)} kwh/100km)
                                         </p>
                                     )}
                                     {vehicle.technology === "rechargeable hybrid" && (
                                         <p>
-                                            Consommation: {vehicle.consumption.toFixed(2)} l/100km (équivalent {(vehicle.consumption * 8.9).toFixed(2)} kwh/100km)
+                                            Consommation: {(vehicle.consumption/8.9).toFixed(2)} l/100km (équivalent {vehicle.consumption.toFixed(2)} kwh/100km)
                                         </p>
                                     )}
                                     <p>Impact de fabrication: {vehicle.buildImpact} tonnes CO2</p>

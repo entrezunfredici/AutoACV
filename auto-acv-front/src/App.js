@@ -23,7 +23,10 @@ class App extends Component {
     selectedVehicles: [],
     energyMixes: [],
     powerSources: [],
-    electrictyImpact: 0, //selected energy mix
+    electrictyImpact: 0,
+    gazolineImpact: 0,
+    dieselImpact: 0,
+    bioethanolImpact: 0,
     colors: [
       getComputedStyle(document.documentElement).getPropertyValue('--primary').trim(),
       getComputedStyle(document.documentElement).getPropertyValue('--secondary').trim()
@@ -57,6 +60,16 @@ class App extends Component {
     });
   }
 
+  fetchEnergyImpactByEnergyName = (energy) => {
+    let impact = 0;
+    this.state.powerSources.forEach((source) => {
+      if (source.powerSource_name === energy){
+        impact = source.powerSource_impact;
+      }
+    });
+    return impact;
+  }
+
   handleVehicleSelect = (index, vehicle) => {
     const selectedVehicles = [...this.state.selectedVehicles];
     selectedVehicles[index] = vehicle;
@@ -70,21 +83,23 @@ class App extends Component {
   getEnergyImpact = (vehicles) => {
     let energyImpact = [0,0];
     for (let i=0; i<vehicles.length; i++){
-      switch(vehicles[i].technology){
-        case "electric":
-          energyImpact[i] = this.state.electrictyImpact||0;
-          break;
-        case "gasoline" || "petrol" || "hybrid":
-          energyImpact[i] = 0;
-          break;
-        case "diesel" || "hybrid-diesel":
-          energyImpact[i] = 0;
-          break;
-        case "bioethanol":
-          energyImpact[i] = 0;
-          break;
-        default:
-          energyImpact[i] = 0;
+      let carTechnologies = {
+        "gasoline": "gasoline",
+        "hybrid": "gasoline",
+        "diesel": "diesel",
+        "hybrid-diesel": "diesel",
+        "bioethanol": "bioethanol"
+      }
+      if (vehicles[i].technology === "electric"){
+        energyImpact[i] = this.state.electrictyImpact;
+        console.log(energyImpact[i]);
+      }else{
+        for (let technology in carTechnologies){
+          if (vehicles[i].technology === technology){
+            energyImpact[i] = this.fetchEnergyImpactByEnergyName(carTechnologies[technology]);
+            console.log(energyImpact[i]);
+          }
+        }
       }
     }
     return energyImpact;

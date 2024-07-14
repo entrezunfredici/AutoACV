@@ -18,7 +18,6 @@ exports.getMixByCountry = async (country_Mix) => {
 //service modifiant un mix energetique par le champ country
 exports.updateMixByCountry =  async (country, wind, solar, geothermal, biomass, hydroelectric, nuclear, coal, oil, gaz_fired, source) => {
     const modifiedMix = await this.getMixByCountry(country);
-    console.log(country)
     return await modifiedMix.update({
         wind:wind, 
         solar:solar, 

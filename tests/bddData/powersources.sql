@@ -41,16 +41,18 @@ CREATE TABLE `powersources` (
 --
 
 INSERT INTO `powersources` (`id_PowerSource`, `powerSource_name`, `powerSource_impact`, `powerSource_info_sources`, `createdAt`, `updatedAt`) VALUES
-(1, 'coal', 820, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(2, 'gaz_fired', 490, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(3, 'biomass(cofiring)', 740, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(4, 'biomass(dedicated)', 230, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(5, 'biomass', 230, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(6, 'geothermal', 38, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(7, 'hydroelectric', 24, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(8, 'nuclear', 12, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(9, 'solar', 27, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50'),
-(10, 'wind', 11, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf', '2024-07-12 14:18:50', '2024-07-12 14:18:50');
+(1, 'coal', 820, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(2, 'gaz_fired', 490, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(3, 'biomass(cofiring)', 740, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(4, 'biomass(dedicated)', 230, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(5, 'biomass', 230, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(6, 'geothermal', 38, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(7, 'hydroelectric', 24, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(8, 'nuclear', 12, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(9, 'solar', 27, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(10, 'wind', 11, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-12 14:18:50', '2024-07-14 08:24:50'),
+(11, 'gasoline', 61, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-14 08:24:50', '2024-07-14 08:24:50'),
+(12, 'diesel', 67, 'source: https://www.ipcc.ch/site/assets/uploads/2018/02/ipcc_wg3_ar5_annex-iii.pdf, https://fr.wikipedia.org/wiki/Empreinte_carbone#.C3.89missions_directes_en_CO2_des_combustibles', '2024-07-14 08:24:50', '2024-07-14 08:24:50');
 
 --
 -- Indexes for dumped tables
