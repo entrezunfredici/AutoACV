@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 import './App.css';
 import TopBar from './components/topBar/topBar'
 import VehicleSelector from './components/VehicleSelector/VehicleSelector';
 import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector';
+import SignInForm from './components/forms/signInForm';
+import SignUpForm from './components/forms/signUpForm';
 import Graph from './components/Graph/Graph';
 //import yourClass from './models'; //import your class
 
@@ -124,6 +128,40 @@ class App extends Component {
     return (
       //<div className="App lightTheme">
       <div className="App darkTheme">
+        <body className="App-header">
+          <Router>
+            <Routes>
+              <Route path="/" element={
+                <main>
+                  <TopBar />
+                  <section id="EnergyMixSelector" class="mainSections">
+                    <EnergyMixSelector energyMixes={this.state.energyMixes} powerSources={this.state.powerSources} />
+                  </section>
+                  <section id="vehiclesSelectors" class="mainSections">
+                    <div id="car1" class="vehicleSelectorUnit darkBorder">
+                      <VehicleSelector vehicles={this.state.vehicles} classes={"primary"}/>
+                    </div>
+                    <div id="car2" class="vehicleSelectorUnit">
+                      <VehicleSelector vehicles={this.state.vehicles} classes={"secondary"}/>
+                    </div>
+                  </section>
+                </main>
+              } />
+              <Route path="/login" element={
+                <main>
+                  <TopBar />
+                  <SignInForm />
+                </main>
+              } />
+              <Route path="/register" element={
+                <main>
+                  <TopBar />
+                  <SignUpForm />
+                </main>
+              } />
+            </Routes>
+          </Router>
+        </body>
         <header className="App-header">
           <TopBar />
         </header>
