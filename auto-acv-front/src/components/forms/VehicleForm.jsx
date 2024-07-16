@@ -56,7 +56,7 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
                 dutyCycle: vehicle.dutyCycle,
                 useImpact: vehicle.useImpact,
                 enginePower: vehicle.enginePower,
-                id_vehicule: vehicle.id_vehicule, // Assurez-vous que c'est bien défini
+                id_vehicule: vehicle.id_Vehicules, // Assurez-vous que c'est bien défini
             });
         }
     }, [vehicle]);
@@ -114,48 +114,58 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
                     <form onSubmit={handleSubmit} className="vehiculeFormElem">
                         <div id="formLine">
                             <label>
-                                brand <input type="text" className="copperBorder" name="brand" value={form.brand} onChange={handleChange} />
+                                <p>brand</p>
+                                <input type="text" className="copperBorder" name="brand" value={form.brand} onChange={handleChange} />
                             </label>
                             <label>
-                                model <input type="text" className="copperBorder" name="model" value={form.model} onChange={handleChange} />
+                                <p>model</p>
+                                <input type="text" className="copperBorder" name="model" value={form.model} onChange={handleChange} />
                             </label>
                             <label>
-                                motorisation <input type="text" className="copperBorder" name="motorisation" value={form.motorisation} onChange={handleChange} />    
+                                <p>motorisation</p>
+                                <input type="text" className="copperBorder" name="motorisation" value={form.motorisation} onChange={handleChange} />
                             </label>
                             <label>
-                                type <input type="text" className="copperBorder" name="type" value={form.type} onChange={handleChange} />
+                                <p>type</p>
+                                <input type="text" className="copperBorder" name="type" value={form.type} onChange={handleChange} />
                             </label>
                         </div>
                         <div id="formLine">
                             <label>
-                                dutyCycle <input type="number" className="copperBorder" name="dutyCycle" value={form.dutyCycle} onChange={handleChange} />
+                                <p>dutyCycle (Km)</p>
+                                <input type="number" className="copperBorder" name="dutyCycle" value={form.dutyCycle} onChange={handleChange} />
                             </label>
                             <label>
-                                buildImpact <input type="number" className="copperBorder" name="buildImpact" value={form.buildImpact} onChange={handleChange} />
+                                <p>buildImpact (Tonns of co2)</p>
+                                <input type="number" className="copperBorder" name="buildImpact" value={form.buildImpact} onChange={handleChange} />
                             </label>
                             <label>
-                                recycleImpact <input type="number" className="copperBorder" name="recycleImpact" value={form.recycleImpact} onChange={handleChange} />
+                                <p>recycleImpact (Tons of co2)</p>
+                                <input type="number" className="copperBorder" name="recycleImpact" value={form.recycleImpact} onChange={handleChange} />
                             </label>
                             <label>
-                                useImpact <input type="number" className="copperBorder" name="useImpact" value={form.useImpact} onChange={handleChange} />
+                                <p>useImpact (grams of co2/km)</p>
+                                <input type="number" className="copperBorder" name="useImpact" value={form.useImpact} onChange={handleChange} />
                             </label>
                         </div>
                         <div id="formLine">
                             <label>
-                                technology <input type="text" className="copperBorder" name="technology" value={form.technology} onChange={handleChange} />
+                                <p>technology</p>
+                                <input type="text" className="copperBorder" name="technology" value={form.technology} onChange={handleChange} />
                             </label>
                             <label>
-                                consumption <input type="number" className="copperBorder" name="consumption" value={form.consumption} onChange={handleChange} />
+                                <p>consumption (kw/h)</p>
+                                <input type="number" className="copperBorder" name="consumption" value={form.consumption} onChange={handleChange} />
                             </label>
                             <label>
-                                enginePower <input type="number" className="copperBorder" name="enginePower" value={form.enginePower} onChange={handleChange} />
+                                <p>enginePower (hp)</p>
+                                <input type="number" className="copperBorder" name="enginePower" value={form.enginePower} onChange={handleChange} />
                             </label>
                         </div>
-                        <div id="formLine">
-                            <label>
-                                source <textarea type="text" className="copperBorder xxlObelixw" name="source" value={form.source} onChange={handleChange} />
-                            </label>
-                        </div>
+                        <label>
+                            <p>source</p>
+                            <textarea type="text" className="copperBorder xxlObelixw" name="source" value={form.source} onChange={handleChange} />
+                        </label>
                         <label className="invisible">
                             id_vehicule <input type="number" className="copperBorder" name="id_vehicule" value={form.id_vehicule} onChange={handleChange} />
                         </label>
