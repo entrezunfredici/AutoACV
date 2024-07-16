@@ -107,6 +107,45 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
         }
     };
 
+    const handleConvert = (technology, value) => {
+        switch (technology) {
+            case 'gasoline':
+                setForm({
+                    ...form,
+                    consumption: parseFloat(value) * 8.9
+                });
+                break;
+            case 'diesel':
+                setForm({
+                    ...form,
+                    consumption: parseFloat(value) * 10.2
+                });
+                break;
+            case 'hybrid':
+                setForm({
+                    ...form,
+                    consumption: parseFloat(value) * 8.9
+                });
+                break;
+            case 'hybrid-diesel':
+                setForm({
+                    ...form,
+                    consumption: parseFloat(value) * 10.74
+                });
+                break;
+            case 'bioethanol':
+                setForm({
+                    ...form,
+                    consumption: parseFloat(value) * 6.7
+                });
+                break;
+            default:
+                break;
+        }
+    };
+
+    const siUnit = true
+
     return (
         <div id="vehicleFormSection" className="lightBorder">
             {vehicle && (
@@ -137,30 +176,54 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
                             </label>
                             <label>
                                 <p>buildImpact (Tonns of co2)</p>
-                                <input type="number" className="copperBorder" name="buildImpact" value={form.buildImpact} onChange={handleChange} />
+                                <input type="float" className="copperBorder" name="buildImpact" value={form.buildImpact} onChange={handleChange} />
                             </label>
                             <label>
                                 <p>recycleImpact (Tons of co2)</p>
-                                <input type="number" className="copperBorder" name="recycleImpact" value={form.recycleImpact} onChange={handleChange} />
+                                <input type="float" className="copperBorder" name="recycleImpact" value={form.recycleImpact} onChange={handleChange} />
                             </label>
                             <label>
                                 <p>useImpact (grams of co2/km)</p>
-                                <input type="number" className="copperBorder" name="useImpact" value={form.useImpact} onChange={handleChange} />
+                                <input type="float" className="copperBorder" name="useImpact" value={form.useImpact} onChange={handleChange} />
                             </label>
                         </div>
                         <div id="formLine">
                             <label>
                                 <p>technology</p>
-                                <input type="text" className="copperBorder" name="technology" value={form.technology} onChange={handleChange} />
+                                <select className="copperBorder" name="technology" value={form.technology} onChange={handleChange}>
+                                    <option value="">Select technology</option>
+                                    <option value="electric">Electric</option>
+                                    <option value="gasoline">Gasoline</option>
+                                    <option value="hybrid">Hybrid (Gasoline)</option>
+                                    <option value="diesel">Diesel</option>
+                                    <option value="hybrid-diesel">Hybrid (Diesel)</option>
+                                    <option value="bioethanol">Bioethanol</option>
+                                </select>
                             </label>
                             <label>
-                                <p>consumption (kw/h)</p>
-                                <input type="number" className="copperBorder" name="consumption" value={form.consumption} onChange={handleChange} />
+                            {siUnit && (
+                                <label>
+                                    <p>consumption (kw/h)</p>
+                                    <input type="float" className="copperBorder" name="consumption" value={form.consumption} onChange={handleChange} />
+                                </label>
+                            )}
+                            {!siUnit && (form.technology == 'diesel')(
+                                <label>
+                                    <p>consumption (l/100km)</p>,
+                                    <input type="float" className="copperBorder" name="consumption" value={form.consumption} onChange={handleChange} />
+                                </label>
+                            )}
                             </label>
                             <label>
                                 <p>enginePower (hp)</p>
                                 <input type="number" className="copperBorder" name="enginePower" value={form.enginePower} onChange={handleChange} />
                             </label>
+                            {(form.technology) != 'electric' &&(
+                                <label>
+                                    <p>Consuption (l/100km)</p>
+                                    <input type="float" className="copperBorder" name="consumptionToConvert" onChange={(e) => handleConvert(form.technology, e.target.value)} />
+                                </label>
+                            )}
                         </div>
                         <label>
                             <p>source</p>
