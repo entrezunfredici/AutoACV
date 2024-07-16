@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import './vehicleSelector.css';
 import VehicleElem from '../VehicleElem/VehicleElem';
+import { Link } from 'react-router-dom';
 
 class VehicleSelector extends Component {
     state = {
@@ -41,6 +42,7 @@ class VehicleSelector extends Component {
 
     render() {
         const { vehicles, classes, onVehicleSelect, index } = this.props;
+        const token = localStorage.getItem('token');
         return (
             <div id="vehicleSelector" className={classes}>
                 {this.state.showVehicle && (
@@ -50,6 +52,10 @@ class VehicleSelector extends Component {
                 )}
                 {this.state.showVehicleList && (
                     <div id="vehicleList">
+                        {token ? (
+                            <Link to="/vehicles"><button className="blockButton" >modify Vehicles</button></Link>
+                        ):(<p></p>)}
+                            {/* {vehicles && vehicles.slice(0, 10).map((vehicle) => ( */}
                         {vehicles && vehicles.map(vehicle => (
                             <div key={vehicle.id_Vehicules} className="vehicleAffiche lightBorder">
                                 <div id="vehicleElemHeader">

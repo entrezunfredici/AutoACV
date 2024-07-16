@@ -53,6 +53,7 @@ class EnergyMixSelector extends Component {
                     className="classicSize copperBorder"
                     onChange={this.handleEnergyMixChange}
                 >
+                    <option value="0">Select energy mix</option>
                     {energyMixes && energyMixes.map(energyMix => (
                         <option key={energyMix.country} value={energyMix.country}>{energyMix.country}</option>
                     ))}

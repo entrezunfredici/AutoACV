@@ -1,4 +1,5 @@
 @import url('../colors.css');
+@import url('../mainClasses.css');
 
 #topBar{
     background-color: var(--navBarColor);

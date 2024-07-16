@@ -8,6 +8,7 @@ import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector'
 import SignInForm from './components/forms/signInForm';
 import SignUpForm from './components/forms/signUpForm';
 import Graph from './components/Graph/Graph';
+import VehiclePage from './components/VehiclePage/VehiclePage';
 import PasswordChangeForm from './components/ProfilPage/PasswordChangeForm';
 import ProfilPage from './components/ProfilPage/ProfilPage';
 import ModifyProfilForm from './components/ProfilPage/ModifyProfilForm';
@@ -180,11 +181,7 @@ class App extends Component {
                 <SignUpForm />
               </main>
             } />
-
-
-                
             <Route path="/profil" element={
-            
               <main>
                 <TopBar />
                 <ProfilPage />
@@ -202,8 +199,13 @@ class App extends Component {
                 <ModifyProfilForm />
             </main>
             } />
-            </Routes>
-          </Router>
+            <Route path="/vehicles" element={
+              <main>
+                <VehiclePage vehicles={this.state.vehicles} onVehicleSelect={this.handleVehicleSelect} index={1}/ >
+              </main>
+            } />
+          </Routes>
+        </Router>
         <footer>
         </footer>
       </div>
