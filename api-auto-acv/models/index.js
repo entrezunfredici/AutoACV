@@ -12,10 +12,10 @@ module.exports = {
     /*to add an model type:
     model: require('./model')(instance)*/
     vehicules: require('./vehicules')(instance),
-    tiquetsVehicules: require('./tiquetsVehicules')(instance),
+    usersModel: require('./users')(instance),
     powerSources: require('./powerSources')(instance),
     mixsEnergetiques: require('./mixsEnergetiques')(instance),
-    usersModel: require('./users')(instance),
+    tiquetsVehicules: require('./tiquetsVehicules')(instance),
     tiquetsSources: require('./tiquetsSources')(instance),
     tiquetsMixs: require('./tiquetsMixs')(instance)
     
