@@ -12,11 +12,11 @@ exports.getTiquetsVehicules = async (req, res) => {
 
 // Controleur pour ajouter un tiquet de véhicule
 exports.addTiquetVehicule = async (req, res) => {
-    const { brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source, dutyCycle, useImpact, id_vehicule } = req.body;
+    const { brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source, dutyCycle, useImpact, id_vehicule, id_user } = req.body;
 
     try {
         const tiquetVehicule = await tiquetsVehiculesService.addTiquetVehicule(
-            brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source, id_vehicule
+            brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source, id_vehicule, id_user
         );
 
         if (!tiquetVehicule) {

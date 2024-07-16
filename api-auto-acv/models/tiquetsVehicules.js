@@ -58,6 +58,14 @@ module.exports = (instance) => {
                 model: 'vehicles',
                 key: 'id_Vehicules'
             }
+        },
+        id_user: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'usersmodels',
+                key: 'id_Users'
+            }
         }
     });
 }
