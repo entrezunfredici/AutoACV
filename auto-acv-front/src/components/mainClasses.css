@@ -24,9 +24,24 @@
     box-shadow: 5px 5px 10px 0px var(--shadow);
 }
 
-.confirmButton{
-    border-color: var(--copperBorder);
+.blockButton{
+    width:100%;
+    border-color: var(--lightBorder);
     border-width: 1px;
+    border-style: solid;
+    background-color: var(--classicButtonColor);
+    color: var(--fontLight);
+    padding: 5px 10px;
+    transition: all 0.3s ease
+}
+
+.blockButton:active {
+    transform: translateY(2px);
+}
+
+.confirmButton{
+    border-color: var(--firstBorderColor);
+    border-width: 1x;
     border-style: solid;
     border-radius: 30px;
     background-color: var(--success);
@@ -39,6 +54,21 @@
 .confirmButton:focus {
     transform: translateY(2px);
     box-shadow: 5px 5px 10px 0px var(--shadow);
+}
+
+.confirmBlockButton{
+    width:100%;
+    border-color: var(--lightBorder);
+    border-width: 1px;
+    border-style: solid;
+    background-color: var(--success);
+    color: var(--fontLight);
+    padding: 5px 10px;
+    transition: all 0.3s ease
+}
+.confirmBlockButton:active {
+    transform: translateY(2px);
+    box-shadow: -5px -5px -5px 0px var(--shadow);
 }
 
 .cancelButton{
@@ -70,4 +100,12 @@
 
 .xxlw{
     width: 90%;
+}
+
+.xxlObelixw{
+    width: 100%;
+}
+
+.invisible{
+    display: none;
 }

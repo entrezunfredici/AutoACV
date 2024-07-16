@@ -8,6 +8,7 @@ import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector'
 import SignInForm from './components/forms/signInForm';
 import SignUpForm from './components/forms/signUpForm';
 import Graph from './components/Graph/Graph';
+import VehiclePage from './components/VehiclePage/VehiclePage';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -175,6 +176,11 @@ class App extends Component {
               <main>
                 <TopBar />
                 <SignUpForm />
+              </main>
+            } />
+            <Route path="/vehicles" element={
+              <main>
+                <VehiclePage vehicles={this.state.vehicles} onVehicleSelect={this.handleVehicleSelect} index={1}/ >
               </main>
             } />
           </Routes>

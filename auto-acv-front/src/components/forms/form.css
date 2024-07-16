@@ -1,3 +1,6 @@
+@import url('../colors.css');
+@import url('../mainClasses.css');
+
 h1 {
 text-align: center;
 }

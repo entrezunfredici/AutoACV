@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import './vehicleSelector.css';
 import VehicleElem from '../VehicleElem/VehicleElem';
+import { Link } from 'react-router-dom';
 
 class VehicleSelector extends Component {
     state = {
@@ -50,6 +51,8 @@ class VehicleSelector extends Component {
                 )}
                 {this.state.showVehicleList && (
                     <div id="vehicleList">
+                        <Link to="/vehicles"><button className="blockButton" >more Vehicles</button></Link>
+                        {/* {vehicles && vehicles.slice(0, 10).map((vehicle) => ( */}
                         {vehicles && vehicles.map(vehicle => (
                             <div key={vehicle.id_Vehicules} className="vehicleAffiche lightBorder">
                                 <div id="vehicleElemHeader">

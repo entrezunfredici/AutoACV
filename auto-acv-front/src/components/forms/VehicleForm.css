@@ -1,0 +1,19 @@
+@import url('../colors.css');
+@import url('../mainClasses.css');
+
+.formLine {
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    margin:10px;
+}
+
+.vehicleSelecterFormElem{
+    width:100%;
+    height:100%;
+}
+
+.vehiculeFormElem{
+    width:100%;
+    height:100%;
+}
