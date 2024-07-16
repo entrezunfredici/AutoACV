@@ -1,28 +1,64 @@
-version: '3'
+version: '3.8'
+
 services:
   frontend:
-    build:
-      context: ./auto-acv-front
-    container_name: frontend
+    build: ./auto-acv-front
+    volumes:
+      - ./auto-acv-front:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+    command: ["npm", "run", "start"]
     ports:
       - "3000:3000"
-    depends_on:
-      - backend
+    networks:
+      - autoacv-network
 
   backend:
-    build:
-      context: ./api-auto-acv
-    container_name: backend
+    build: ./api-auto-acv
+    volumes:
+      - ./api-auto-acv:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=autoacvdatabase
+      - DB_PORT=3306
+    command: ["npm", "start"]
     ports:
       - "8000:8000"
+    networks:
+      - autoacv-network
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: autoacvdatabase
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - autoacv-network
 
   nginx:
-    image: nginx:alpine
-    container_name: nginx
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - frontend
       - backend
+    networks:
+      - autoacv-network
+
+networks:
+  autoacv-network:
+    driver: bridge
+
+volumes:
+  db-data:
