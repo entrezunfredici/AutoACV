@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TiquetsComponent from './TiquetsComponent';
 import {jwtDecode} from 'jwt-decode';
 
 function TiquetsUtilisateurComponent() {
@@ -36,15 +37,7 @@ function TiquetsUtilisateurComponent() {
     <div>
       <h2>Tiquets</h2>
       <div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Sed accumsan bibendum varius. Nam vitae ligula sed sapien dictum rutrum.
-          Integer nec tellus lorem. Praesent nec mollis nisi. 
-          Sed tortor est, tincidunt a malesuada et, eleifend sed mi.
-          In suscipit purus id lorem sagittis, et commodo nisi venenatis.
-          Mauris viverra nisl sed nibh maximus semper. Nulla pharetra nulla eget massa elementum fringilla.
-          Donec ac elit in nisi faucibus dictum non eu felis.
-        </p>
+        <TiquetsComponent />
       </div>
     </div>
     // <div>
