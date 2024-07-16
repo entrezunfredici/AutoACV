@@ -7,6 +7,9 @@ import VehicleSelector from './components/VehicleSelector/VehicleSelector';
 import EnergyMixSelector from './components/EnergyMixSelector/EnergyMixSelector';
 import SignInForm from './components/forms/signInForm';
 import SignUpForm from './components/forms/signUpForm';
+import PasswordChangeForm from './components/ProfilPage/PasswordChangeForm';
+import ProfilPage from './components/ProfilPage/ProfilPage';
+import ModifyProfilForm from './components/ProfilPage/ModifyProfilForm';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -90,6 +93,25 @@ class App extends Component {
                   <TopBar />
                   <SignUpForm />
                 </main>
+              } />
+              <Route path="/profil" element={
+              
+                <main>
+                  <TopBar />
+                  <ProfilPage />
+                </main>
+              } />
+              <Route path="/profil/PasswordChange" element={
+                <main>
+                  <TopBar />
+                  <PasswordChangeForm />
+                </main>
+              } />
+              <Route path="/profil/ModifyProfil" element={
+                <main>
+                  <TopBar />
+                  <ModifyProfilForm />
+              </main>
               } />
             </Routes>
           </Router>

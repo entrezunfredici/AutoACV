@@ -14,7 +14,7 @@ function TopBar(){
                     <>
                         <button id="ticket_button" class="topBar_button">tickets</button>
                         <button id="energy_button" class="topBar_button">energy</button>
-                        <button id="profile_button" class="topBar_button">profile</button>
+                        <Link to="/profil"><button id="profile_button" class="topBar_button">profile</button></Link>
                     </>
                 ) : (
                     //Si l'utilisateur n'est pas connecté

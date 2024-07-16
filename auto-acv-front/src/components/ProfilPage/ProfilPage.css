@@ -1,0 +1,8 @@
+.profilPage {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .profilPage > * {
+    flex-basis: 45%; /* Ajustez cette valeur en fonction de vos besoins */
+  }
