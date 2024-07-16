@@ -71,7 +71,7 @@ function PasswordChangeForm() {
       <form onSubmit={handleSubmit}>
         <label>
             Nouveau mot de passe :&nbsp;
-            <input type="text" name="password" value={form.password} onChange={handleChange} />
+            <input type="password" name="password" value={form.password} onChange={handleChange} />
             {errors.password && <p>{errors.password}</p>}
         </label>
         <a></a>

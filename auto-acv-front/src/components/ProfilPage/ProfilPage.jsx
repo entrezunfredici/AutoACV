@@ -6,7 +6,10 @@ import './ProfilPage.css';
 function ProfilPage() {
   return (
     <div className="profilPage">
-      <AffichInfoUserComponent />
+      <div className="profilInfo">
+        <h1>Profil Utilisateur</h1>
+        <AffichInfoUserComponent />
+      </div>
       <TiquetsUtilisateurComponent />
     </div>
   );

@@ -6,7 +6,7 @@ function TopBar(){
     return(
         <div id="topBar" className="copperBorder">
             <div id="topBar_logo">
-                {/* <img src=""/> */}
+                <Link to="/"><img src="../../images/logoAutoAcv.png" alt="logo" id="logo"/></Link>
             </div>
             <div id="topBar_menu">
                 {token ? (

@@ -12,13 +12,20 @@ function AffichInfoUserComponent() {
 
   console.log(decodedToken);
 
+  function SignOut() {
+    localStorage.removeItem('token');
+    navigate('/');
+  }
+
   return (
     <div class="infoUtilisateur">
-      <h1>Profil Utilisateur</h1>
-      <p>Username :&nbsp;{decodedToken.data.username}</p>
-      <p>Mail :&nbsp;{decodedToken.data.mail}</p>
-      <a onClick={() => navigate('/profil/PasswordChange')}>Changer de mot de passe</a>
-      <a onClick={() => navigate('/profil/ModifyProfil')}>Modifier le profil</a>
+      <p><strong>Username :&nbsp;</strong>{decodedToken.data.username}</p>
+      <p><strong>Mail :&nbsp;</strong>{decodedToken.data.mail}</p>
+      <div className='buttonsCont'>
+        <a onClick={() => navigate('/profil/PasswordChange')}>Changer de mot de passe</a>
+        <a onClick={() => navigate('/profil/ModifyProfil')}>Modifier le profil</a>
+      </div>
+      <button onClick={SignOut} className='cancelButton'>Se deconnecter</button>
     </div>
 
   );

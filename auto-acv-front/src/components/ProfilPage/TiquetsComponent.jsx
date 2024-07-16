@@ -1,5 +1,6 @@
 import React from 'react';
 import TiquetComponent from './TiquetComponent';
+import {jwtDecode} from 'jwt-decode';
 
 class TiquetsComponent extends React.Component {
   constructor(props) {
@@ -10,16 +11,30 @@ class TiquetsComponent extends React.Component {
   }
 
   componentDidMount() {
+    const decodedToken = jwtDecode(localStorage.getItem('token'));
+    const id = decodedToken.data.id_Users;
+
     fetch('http://localhost:8000/tiquetsVehicules')
       .then((response) => response.json())
-      .then((data) => this.setState({ tiquetsVehicules: data.tiquetsVehicules }));
+      .then((data) => {
+        const userTiquets = data.tiquetsVehicules.filter(tiquet => tiquet.id_user === id);
+        this.setState({ tiquetsVehicules: userTiquets });
+      });
   }
 
+  handleDelete = (id) => {
+    this.setState(prevState => ({
+      tiquetsVehicules: prevState.tiquetsVehicules.filter(tiquet => tiquet.id_tiquetVehicules !== id)
+    }));
+  };
+  
   render() {
     return (
-      <div>
+      <div className='tiquetConteiner'>
         {this.state.tiquetsVehicules.map((tiquet) => (
-          <TiquetComponent key={tiquet.id_tiquetVehicules} tiquet={tiquet} />
+          <div className='tiquetItem'>
+            <TiquetComponent key={tiquet.id_tiquetVehicules} tiquet={tiquet} onDelete={this.handleDelete} />
+          </div>
         ))}
       </div>
     );
