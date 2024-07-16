@@ -1,0 +1,27 @@
+@import url('../colors.css');
+@import url('../mainClasses.css');
+
+.profilPage {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.profilPage > * {
+  flex-basis: 45%; /* Ajustez cette valeur en fonction de vos besoins */
+}
+
+.tiquetItem {
+  border-radius: 15px;
+  background-color: #007bff;
+  padding: 20px; /* Increased padding for better content separation */
+  margin-bottom: 20px; /* Added margin to separate each item */
+  color: white; /* Ensures text is readable against the blue background */
+}
+
+
+.tiquetConteiner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px; /* Added padding to ensure content doesn't touch the container edges */
+}

@@ -99,7 +99,8 @@ exports.createToken = (user) => {
         data: {
             id_Users: user.id_Users,
             username: user.username,
-            admin: user.admin
+            admin: user.admin,
+            mail: user.mail
         }
     }, process.env.SECRET, { 
         expiresIn: '30s'

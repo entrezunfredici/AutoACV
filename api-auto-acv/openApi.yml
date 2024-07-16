@@ -549,7 +549,7 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/vehicules'
+                $ref: '#/components/schemas/tiquetVehicule'
         "404":
           description: "Les tiquets vehicules n'existe pas"
     post:
@@ -797,6 +797,8 @@ components:
         model:
           type: string
         id_vehicule:
+          type: integer
+        id_user:
           type: integer
     tiquetsMixs:
       type: "object"

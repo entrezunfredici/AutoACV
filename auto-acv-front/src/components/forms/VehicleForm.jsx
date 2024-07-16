@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './VehicleForm.css';
 import * as yup from 'yup';
+import * as jwt_decode from 'jwt-decode';
 
 // Schéma de validation
 const schema = yup.object().shape({
@@ -17,6 +18,7 @@ const schema = yup.object().shape({
     useImpact: yup.number().required('Vehicle use impact is required'),
     enginePower: yup.number().required('Vehicle engine power is required'),
     id_vehicule: yup.number().required('Vehicle id is required'),
+    id_user: yup.number().required('User id is required'),
     source: yup.string().required('Your information must be sourced ')
 });
 
@@ -34,12 +36,16 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
         useImpact: 0,
         enginePower: 0,
         id_vehicule: 0,
+        id_user: 0,
         source: '',
     });
 
     const [errors, setErrors] = useState({});
 
     const navigate = useNavigate();
+
+    const token = localStorage.getItem('token');
+    const decodedTocken = jwt_decode.jwtDecode(token);
 
     useEffect(() => {
         if (vehicle) {
@@ -56,7 +62,8 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
                 dutyCycle: vehicle.dutyCycle,
                 useImpact: vehicle.useImpact,
                 enginePower: vehicle.enginePower,
-                id_vehicule: vehicle.id_Vehicules, // Assurez-vous que c'est bien défini
+                id_vehicule: vehicle.id_Vehicules,
+                id_user: decodedTocken.data.id_Users,
             });
         }
     }, [vehicle]);
@@ -75,9 +82,7 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
         setErrors({});
     
         try {
-            console.log("test");
             await schema.validate(form, { abortEarly: false });
-            console.log(form); // Ajoutez cette ligne pour vérifier les données
             fetch('http://localhost:8000/tiquetsVehicules', {
                 method: 'POST',
                 headers: {
@@ -92,7 +97,7 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
                 return response.json();
             })
             .then(data => {
-                navigate('/login');
+                navigate('/');
             })
             .catch(error => {
                 console.error('Erreur lors de la modification du ticket:', error);
@@ -230,7 +235,12 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
                             <textarea type="text" className="copperBorder xxlObelixw" name="source" value={form.source} onChange={handleChange} />
                         </label>
                         <label className="invisible">
-                            id_vehicule <input type="number" className="copperBorder" name="id_vehicule" value={form.id_vehicule} onChange={handleChange} />
+                            <p>id_vehicule</p>
+                            <input type="number" className="copperBorder" name="id_vehicule" value={form.id_vehicule} onChange={handleChange} />
+                        </label>
+                        <label className="invisible">
+                            <p>id_user</p>
+                            <input type="number" className="copperBorder" name="id_user" value={form.id_user} onChange={handleChange} />
                         </label>
                         <button className="blockButton" type="button" onClick={() => onVehicleSelect(vehicle)}>select</button>      
                         <button type="submit" className="confirmBlockButton">modify</button>

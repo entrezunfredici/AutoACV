@@ -9,6 +9,9 @@ import SignInForm from './components/forms/signInForm';
 import SignUpForm from './components/forms/signUpForm';
 import Graph from './components/Graph/Graph';
 import VehiclePage from './components/VehiclePage/VehiclePage';
+import PasswordChangeForm from './components/ProfilPage/PasswordChangeForm';
+import ProfilPage from './components/ProfilPage/ProfilPage';
+import ModifyProfilForm from './components/ProfilPage/ModifyProfilForm';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -178,6 +181,24 @@ class App extends Component {
                 <SignUpForm />
               </main>
             } />
+            <Route path="/profil" element={
+              <main>
+                <TopBar />
+                <ProfilPage />
+              </main>
+            } />
+            <Route path="/profil/PasswordChange" element={
+              <main>
+                <TopBar />
+                <PasswordChangeForm />
+              </main>
+            } />
+            <Route path="/profil/ModifyProfil" element={
+              <main>
+                <TopBar />
+                <ModifyProfilForm />
+            </main>
+            } />
             <Route path="/vehicles" element={
               <main>
                 <VehiclePage vehicles={this.state.vehicles} onVehicleSelect={this.handleVehicleSelect} index={1}/ >
@@ -185,6 +206,8 @@ class App extends Component {
             } />
           </Routes>
         </Router>
+        <footer>
+        </footer>
       </div>
     );
   }

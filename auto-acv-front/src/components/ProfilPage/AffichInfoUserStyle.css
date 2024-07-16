@@ -1,0 +1,46 @@
+/* AffichInfoUserStyle.css */
+@import url('../mainClasses.css');
+
+.infoUtilisateur {
+width: 100%;
+max-width: 600px;
+margin: 0px auto;
+padding: 20px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 4px;
+text-align: center;
+background-color: #007bff;
+}
+
+.infoUtilisateur h1 {
+font-size: 24px;
+color: white;
+margin-bottom: 20px;
+}
+
+.infoUtilisateur p {
+font-size: 18px;
+color: white;
+line-height: 1.6;
+}
+
+.infoUtilisateur button {
+margin-top: 15px;
+}
+.infoUtilisateur a {
+display: inline-block;
+margin-top: 20px;
+padding: 10px 20px;
+color: #fff;
+background-color: #303030;
+border-radius: 4px;
+text-decoration: none;
+}
+
+.infoUtilisateur a:hover {
+background-color: #0056b3;
+}
+
+.buttonsCont a {
+margin-right: 10px;
+}

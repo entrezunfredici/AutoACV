@@ -6,16 +6,16 @@ function TopBar(){
     return(
         <div id="topBar" className="copperBorder">
             <div id="topBar_logo">
-                {/* <img src=""/> */}
+                <Link to="/"><img src="../../images/logoAutoAcv.png" alt="logo" id="logo"/></Link>
             </div>
             <div id="topBar_menu">
                 {token ? (
                     //Si l'utilisateur est connecté
-                    <div>
+                    <>
                         <button id="ticket_button" className="topBar_button">tickets</button>
                         <button id="energy_button" className="topBar_button">energy</button>
-                        <button id="profile_button" className="topBar_button">profile</button>
-                    </div>
+                        <Link to="/profil"><button id="profile_button" className="topBar_button">profile</button></Link>
+                    </>
                 ) : (
                     //Si l'utilisateur n'est pas connecté
                     <div>
