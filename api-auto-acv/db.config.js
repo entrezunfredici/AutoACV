@@ -1,7 +1,7 @@
 module.exports = {
     hostname: "localhost",
     username: "root",
-    password: "",
+    password: "root",
     database: "autoacvdatabase",
     port: 3306
 }

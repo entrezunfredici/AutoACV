@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le : mer. 19 juin 2024 à 09:53
--- Version du serveur : 8.2.0
--- Version de PHP : 8.2.13
+-- Host: localhost:3306
+-- Generation Time: Jul 12, 2024 at 03:38 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,43 +18,63 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `autoacvdatabase`
+-- Database: `autoacvdatabase`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `vehicles`
+-- Table structure for table `vehicles`
 --
 
-DROP TABLE IF EXISTS `vehicles`;
-CREATE TABLE IF NOT EXISTS `vehicles` (
-  `id_Vehicules` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `vehicles` (
+  `id_Vehicules` int(11) NOT NULL,
   `brand` varchar(255) NOT NULL,
   `motorisation` varchar(255) NOT NULL,
   `consumption` float NOT NULL,
   `buildImpact` float DEFAULT NULL,
   `recycleImpact` float DEFAULT NULL,
+  `useImpact` float DEFAULT NULL,
   `technology` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `source` varchar(255) NOT NULL,
-  `enginePower` int DEFAULT NULL,
+  `enginePower` int(11) DEFAULT NULL,
   `model` varchar(255) NOT NULL,
   `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id_Vehicules`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `vehicles`
+-- Dumping data for table `vehicles`
 --
 
-INSERT INTO `vehicles` (`id_Vehicules`, `brand`, `motorisation`, `consumption`, `buildImpact`, `recycleImpact`, `technology`, `type`, `source`, `enginePower`, `model`, `createdAt`, `updatedAt`) VALUES
-(101, 'Toyota', 'Hybrid', 4.5, 2.3, 1.1, 'Electric', 'Sedan', 'Official Report', 150, 'Prius', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(102, 'Tesla', 'Electric', 0, 3, 0.8, 'Battery', 'SUV', 'Manufacturer', 300, 'Model X', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(103, 'Ford', 'Diesel', 8.5, 4.2, 2.5, 'Combustion', 'Truck', 'Industry Analysis', 250, 'F-150', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(104, 'BMW', 'Petrol', 7, 3.5, 1.7, 'Internal Combustion', 'Coupe', 'Journal Review', 220, 'M4', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
-(105, 'Nissan', 'Electric', 0, 2.8, 1, 'Battery', 'Hatchback', 'Environmental Study', 110, 'Leaf', '2024-06-19 10:00:00', '2024-06-19 10:00:00');
+INSERT INTO `vehicles` (`id_Vehicules`, `brand`, `motorisation`, `consumption`, `buildImpact`, `recycleImpact`, `dutyCycle`, `useImpact`, `technology`, `type`, `source`, `enginePower`, `model`, `createdAt`, `updatedAt`) VALUES
+(1, 'Tesla', 'grande autonomie AWD', 18.7, 11.5, 0, 500000, 0, 'electric', 'berline', 'mes sources sonthttps://www.tesla.com/fr_fr/models https://www.tesla.com/fr_fr/support/power-consumption, https://www.nouvelr-energie.com/br/bilan-carbone-voiture-electrique', 670, 'Model S (phase 3)', '2024-07-12 14:24:25', '2024-07-12 14:24:25'),
+(2, 'Toyota', 'XW30', 40.05, 2.3, 1.1, 500000, 89, 'hybrid', 'Sedan', 'Official Report', 136, 'Prius', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(3, 'Tesla', '60D', 16.9, 3, 0.8, 500000, 0, 'electric', 'SUV', 'Manufacturer and wikipedia https://fr.wikipedia.org/wiki/Tesla_Model_X', 332, 'Model X (phase 1)', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(4, 'Ford', 'V8, 4,6 L', 91.29, 4.2, 2.5, 500000, 250, 'diesel', 'Truck', 'Industry Analysis', 248, 'F-150', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(5, 'BMW', '', 62.3, 3.5, 1.7, 500000, 230, 'petrol', 'Coupe', 'Journal Review', 220, 'M4', '2024-06-19 10:00:00', '2024-06-19 10:00:00'),
+(6, 'Nissan', '', 10.75, 2.8, 1, 500000, 0, 'electric', 'Hatchback', 'Environmental Study and wikipedia= https://fr.wikipedia.org/wiki/Nissan_Leaf', 110, 'Leaf ZE0', '2024-06-19 10:00:00', '2024-06-19 10:00:00');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `vehicles`
+--
+ALTER TABLE `vehicles`
+  ADD PRIMARY KEY (`id_Vehicules`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `vehicles`
+--
+ALTER TABLE `vehicles`
+  MODIFY `id_Vehicules` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

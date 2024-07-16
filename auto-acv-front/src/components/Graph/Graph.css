@@ -1,0 +1,11 @@
+@import url('../colors.css');
+@import url('../mainClasses.css');
+
+#graphDiv{
+    width: 100%;
+    height: 100%;
+    background-color: var(--lightThemeBkgnd);
+    border-radius: 10px;
+    border: 1px solid var(--firstBorderColor);
+    box-shadow: 0 0 10px var(--shadow);
+}

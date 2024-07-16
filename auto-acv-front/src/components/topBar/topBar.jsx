@@ -12,16 +12,16 @@ function TopBar(){
                 {token ? (
                     //Si l'utilisateur est connecté
                     <>
-                        <button id="ticket_button" class="topBar_button">tickets</button>
-                        <button id="energy_button" class="topBar_button">energy</button>
-                        <Link to="/profil"><button id="profile_button" class="topBar_button">profile</button></Link>
+                        <button id="ticket_button" className="topBar_button">tickets</button>
+                        <button id="energy_button" className="topBar_button">energy</button>
+                        <Link to="/profil"><button id="profile_button" className="topBar_button">profile</button></Link>
                     </>
                 ) : (
                     //Si l'utilisateur n'est pas connecté
-                    <>
-                        <Link to="/login"><button id="login_button" class="topBar_button">log in</button></Link>
-                        <Link to="/register"><button id="register_button" class="topBar_button">register</button></Link>
-                    </>
+                    <div>
+                        <Link to="/login"><button id="login_button" className="topBar_button">log in</button></Link>
+                        <Link to="/register"><button id="register_button" className="topBar_button">register</button></Link>
+                    </div>
                 )}
             </div>
         </div>

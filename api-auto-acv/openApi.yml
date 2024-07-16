@@ -142,7 +142,7 @@ paths:
         content:
           application/json:
             schema: 
-              $ref: "string"
+              $ref: "#/components/schemas/usersLogin"
       responses:
         "200":
           description: "L'utilisateur est connecté"
@@ -173,7 +173,7 @@ paths:
         content:
           application/json:
             schema: 
-              $ref: "string"
+              $ref: "#/components/schemas/usersLogin"
       responses:
         "201":
           description: "Le mot de passe à été modifié"
@@ -467,6 +467,18 @@ paths:
                 $ref: '#/components/schemas/sourcesEnergies'
         "404":
           description: "Le tiquet source n'a pas été trouvé"
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  success:
+                    type: "boolean"
+                    example: false
+                  message:
+                    type: "string"
+                    example: "Le tiquet source n'a pas été trouvé"
+            
   /tiquetsMixs:
     get:
       tags:
@@ -479,7 +491,7 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/mixsEnergetiques'
+                $ref: '#/components/schemas/tiquetsMixs'
         "404":
           description: "Les tiquets mixs n'existe pas"
     post:
@@ -493,14 +505,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/mixsEnergetiques'
+              $ref: '#/components/schemas/tiquetsMixs'
       responses:
         "201":
           description: "Un tiquet mix à été ajouté"
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/mixsEnergetiques'
+                $ref: '#/components/schemas/tiquetsMixs'
         "400": 
           description: "Un champs essentiels n'est pas présent ou incorrect"
   /tiquetsMixs/{id}:
@@ -628,6 +640,16 @@ components:
         admin:
           type: "boolean"
           example: true
+    usersLogin:
+      type: "object"
+      properties:
+        username:
+          type: "string"
+          example: "fred2468"
+        password:
+          type: "string"
+          example: "F3084YFH30DK0ACKVkicnseifj"
+
     vehicules:
       type: object
       properties:
@@ -647,6 +669,12 @@ components:
           type: "number"
           example: 2.5
         recycleImpact:
+          type: "number"
+          example: 2
+        dutyCycle:
+          type: number
+          nullable: true
+        useImpact:
           type: "number"
           example: 2
         technology:
@@ -734,8 +762,8 @@ components:
           type: "number"
           example: 13.3
         source:
-          type: "number"
-          example: 13.3
+          type: "string"
+          example: "Test Source 1"
     tiquetVehicule:
       type: object
       properties:
@@ -751,6 +779,12 @@ components:
         recycleImpact:
           type: number
           nullable: true
+        dutyCycle:
+          type: number
+          nullable: true
+        useImpact:
+          type: number
+          nullable: true
         technology:
           type: string
         type:
@@ -764,3 +798,42 @@ components:
           type: string
         id_vehicule:
           type: integer
+    tiquetsMixs:
+      type: "object"
+      properties:
+        wind:
+          type: "number"
+          example: 13.3
+        solar:
+          type: "number"
+          example: 13.3
+        geothermal:
+          type: "number"
+          example: 13.3
+        biomass:
+          type: "number"
+          example: 13.3
+        hydroelectric:
+          type: "number"
+          example: 13.3
+        nuclear:
+          type: "number"
+          example: 13.3
+        coal:
+          type: "number"
+          example: 13.3
+        oil:
+          type: "number"
+          example: 13.3
+        gaz-fired:
+          type: "number"
+          example: 13.3
+        source:
+          type: "string"
+          example: 13.3
+        country:
+          type: "string"
+          example: "France"
+        id_user:
+          type: "integer"
+          example: 1

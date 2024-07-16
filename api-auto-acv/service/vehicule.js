@@ -15,13 +15,15 @@ exports.getVehiculeById = async (id_Vehicules) => {
 }
 
 //service ajoutant un véhicule à la BDD
-exports.addVehicule = async (brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source) => {
+exports.addVehicule = async (brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source) => {
     return await vehicules.create({
         brand:brand, 
         motorisation:motorisation, 
         consumption:consumption, 
         buildImpact:buildImpact, 
         recycleImpact:recycleImpact, 
+        dutyCycle:dutyCycle,
+        useImpact:useImpact,
         technology:technology, 
         type:type, 
         source:source, 
@@ -31,7 +33,7 @@ exports.addVehicule = async (brand, model, motorisation, type, technology, consu
 }
 
 //service modifiant un véhicule dans la BDD
-exports.updateVehicule =  async (id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, source) => {
+exports.updateVehicule =  async (id, brand, model, motorisation, type, technology, consumption, enginePower, buildImpact, recycleImpact, dutyCycle, useImpact, source) => {
     const modifiedVehicule = await this.getVehiculeById(id);
     return await modifiedVehicule.update({
         brand:brand, 
@@ -39,6 +41,8 @@ exports.updateVehicule =  async (id, brand, model, motorisation, type, technolog
         consumption:consumption, 
         buildImpact:buildImpact, 
         recycleImpact:recycleImpact, 
+        dutyCycle:dutyCycle,
+        useImpact:useImpact,
         technology:technology, 
         type:type, 
         source:source, 

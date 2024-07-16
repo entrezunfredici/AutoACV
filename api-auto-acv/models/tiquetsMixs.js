@@ -1,62 +1,66 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (instance) => {
-    return instance.define('tiquetVehicle', {
-        id_tiquetVehicules: {
+    return instance.define('tiquetMix', {
+        id_tiquetMix: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        brand: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        motorisation: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        consumption: {
+        wind: {
             type: DataTypes.FLOAT,
             allowNull: false
         },
-        buildImpact: {
+        solar: {
             type: DataTypes.FLOAT,
-        },
-        recycleImpact: {
-            type: DataTypes.FLOAT,
-        },
-        dutyCycle: {
-            type: DataTypes.INTEGER,
             allowNull: false
         },
-        useImpact: {
+        geothermal: {
             type: DataTypes.FLOAT,
-        },
-        technology: {
-            type: DataTypes.STRING,
             allowNull: false
         },
-        type: {
-            type: DataTypes.STRING,
+        biomass: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        hydroelectric: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        nuclear: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        coal: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        oil: {
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
+        gaz_fired: {
+            type: DataTypes.FLOAT,
             allowNull: false
         },
         source: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        enginePower: {
-            type: DataTypes.INTEGER
-        },
-        model: {
+        country: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: 'mixenergetiques',
+                key: 'country'
+            }
         },
-        id_vehicule: {
+        id_user: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'vehicles',
-                key: 'id_Vehicules'
+                model: 'usersmodels',
+                key: 'id_Users'
             }
         }
     });
