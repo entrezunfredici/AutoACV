@@ -83,7 +83,7 @@ function VehicleForm({ vehicle, onVehicleSelect }) {
     
         try {
             await schema.validate(form, { abortEarly: false });
-            fetch('http://localhost:8000/tiquetsVehicules', {
+            fetch('http://89.116.110.208:9000/tiquetsVehicules', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

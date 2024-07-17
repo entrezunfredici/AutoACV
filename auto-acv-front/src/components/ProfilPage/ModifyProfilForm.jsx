@@ -40,7 +40,7 @@ function ModifyProfilForm() {
 
     try {
         await schema.validate(form, {abortEarly: false});
-        fetch('http://localhost:8000/users/'+id, {
+        fetch('http://89.116.110.208:9000/users/'+id, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

@@ -34,7 +34,7 @@ function SignUpForm() {
 
         try {
             await schema.validate(form, {abortEarly: false});
-            fetch('http://localhost:8000/users/register', {
+            fetch('http://89.116.110.208:9000/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

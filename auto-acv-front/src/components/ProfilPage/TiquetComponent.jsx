@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const TiquetComponent = ({ tiquet, onDelete}) => {
     const navigate = useNavigate();
     const deleteTiquet = () => {
-        fetch(`http://localhost:8000/tiquetsVehicules/${tiquet.id_tiquetVehicules}`, {
+        fetch(`http://89.116.110.208:9000/tiquetsVehicules/${tiquet.id_tiquetVehicules}`, {
         method: 'DELETE',
         })
         .then(response => {

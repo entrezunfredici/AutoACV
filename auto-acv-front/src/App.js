@@ -42,7 +42,7 @@ class App extends Component {
 
   componentDidMount(){
     //get vehicules list
-    fetch('http://localhost:8000/vehicules').then(response => response.json()).then(data => {
+    fetch('http://89.116.110.208:9000/vehicules').then(response => response.json()).then(data => {
       if (Array.isArray(data.vehicules)) {
         this.setState({ vehicles: data.vehicules });
       } else {
@@ -50,7 +50,7 @@ class App extends Component {
       }
     });
     //get powerSources list
-    fetch('http://localhost:8000/sourcesEnergies').then(response => response.json()).then(data => {
+    fetch('http://89.116.110.208:9000/sourcesEnergies').then(response => response.json()).then(data => {
       if (Array.isArray(data.powerSources)) {
         this.setState({ powerSources: data.powerSources });
       } else {
@@ -58,7 +58,7 @@ class App extends Component {
       }
     });
     //get energymix list
-    fetch('http://localhost:8000/mixsEnergetiques').then(response => response.json()).then(data => {
+    fetch('http://89.116.110.208:9000/mixsEnergetiques').then(response => response.json()).then(data => {
       if (Array.isArray(data.mixs)) {
         this.setState({ energyMixes: data.mixs });
       } else {

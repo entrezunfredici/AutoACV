@@ -14,7 +14,7 @@ class TiquetsComponent extends React.Component {
     const decodedToken = jwtDecode(localStorage.getItem('token'));
     const id = decodedToken.data.id_Users;
 
-    fetch('http://localhost:8000/tiquetsVehicules')
+    fetch('http://89.116.110.208:9000/tiquetsVehicules')
       .then((response) => response.json())
       .then((data) => {
         const userTiquets = data.tiquetsVehicules.filter(tiquet => tiquet.id_user === id);
