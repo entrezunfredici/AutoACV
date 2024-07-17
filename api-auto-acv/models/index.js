@@ -1,10 +1,14 @@
 const { Sequelize } = require('sequelize');
 const dbConfig = require('../db.config');
 
-const instance = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
-    host: dbConfig.hostname,
-    dialect: 'mysql',
-    port: dbConfig.port
+// const instance = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+//     host: dbConfig.hostname,
+//     dialect: 'mysql',
+//     port: dbConfig.port
+// });
+const instance = new Sequelize({
+    dialect: dbConfig.dialect,
+    storage: dbConfig.storage
 });
 
 module.exports = {
@@ -18,5 +22,4 @@ module.exports = {
     tiquetsVehicules: require('./tiquetsVehicules')(instance),
     tiquetsSources: require('./tiquetsSources')(instance),
     tiquetsMixs: require('./tiquetsMixs')(instance)
-    
 }
