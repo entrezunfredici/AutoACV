@@ -12,6 +12,7 @@ import VehiclePage from './components/VehiclePage/VehiclePage';
 import PasswordChangeForm from './components/ProfilPage/PasswordChangeForm';
 import ProfilPage from './components/ProfilPage/ProfilPage';
 import ModifyProfilForm from './components/ProfilPage/ModifyProfilForm';
+import TiquetsComponentAdmin from './components/TiquetsPage/TiquetsComponentAdmin';
 //import yourClass from './models'; //import your class
 
 //pour recuperer des données: 
@@ -185,6 +186,12 @@ class App extends Component {
               <main>
                 <TopBar />
                 <ProfilPage />
+              </main>
+            } />
+            <Route path="/tiquets" element={
+              <main>
+                <TopBar />
+                <TiquetsComponentAdmin />
               </main>
             } />
             <Route path="/profil/PasswordChange" element={

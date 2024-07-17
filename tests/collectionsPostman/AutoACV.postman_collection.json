@@ -21,7 +21,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/users/password/2",
+					"raw": "http://89.116.110.208:9000/users/password/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -51,7 +51,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/users/1",
+					"raw": "http://89.116.110.208:9000/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -71,7 +71,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users/2",
+					"raw": "http://89.116.110.208:9000/users/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -100,7 +100,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/users/login",
+					"raw": "http://89.116.110.208:9000/users/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -120,7 +120,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users/1",
+					"raw": "http://89.116.110.208:9000/users/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -140,7 +140,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/users/name/kévin",
+					"raw": "http://89.116.110.208:9000/users/name/kévin",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -170,7 +170,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/users/register",
+					"raw": "http://89.116.110.208:9000/users/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -199,7 +199,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/vehicules",
+					"raw": "http://89.116.110.208:9000/vehicules",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -218,7 +218,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/vehicules",
+					"raw": "http://89.116.110.208:9000/vehicules",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -246,7 +246,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/vehicules/1",
+					"raw": "http://89.116.110.208:9000/vehicules/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -266,7 +266,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/vehicules/1",
+					"raw": "http://89.116.110.208:9000/vehicules/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -286,7 +286,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/sourcesEnergies",
+					"raw": "http://89.116.110.208:9000/sourcesEnergies",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -305,7 +305,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/sourcesEnergies/1",
+					"raw": "http://89.116.110.208:9000/sourcesEnergies/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -325,7 +325,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/sourcesEnergies/name/Wind",
+					"raw": "http://89.116.110.208:9000/sourcesEnergies/name/Wind",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -355,7 +355,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/sourcesEnergies",
+					"raw": "http://89.116.110.208:9000/sourcesEnergies",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -374,7 +374,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/mixsEnergetiques/Espagne",
+					"raw": "http://89.116.110.208:9000/mixsEnergetiques/Espagne",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -403,7 +403,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/mixsEnergetiques/Espagne",
+					"raw": "http://89.116.110.208:9000/mixsEnergetiques/Espagne",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -443,7 +443,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/tiquetsVehicules",
+					"raw": "http://89.116.110.208:9000/tiquetsVehicules",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -485,7 +485,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/tiquetsSources",
+					"raw": "http://89.116.110.208:9000/tiquetsSources",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -513,7 +513,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/tiquetsSources",
+					"raw": "http://89.116.110.208:9000/tiquetsSources",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -532,7 +532,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/tiquetsSources/1",
+					"raw": "http://89.116.110.208:9000/tiquetsSources/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -552,7 +552,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/tiquetsMixs",
+					"raw": "http://89.116.110.208:9000/tiquetsMixs",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -580,7 +580,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/tiquetsMixs",
+					"raw": "http://89.116.110.208:9000/tiquetsMixs",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -608,7 +608,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8000/tiquetsMixs/8",
+					"raw": "http://89.116.110.208:9000/tiquetsMixs/8",
 					"protocol": "http",
 					"host": [
 						"localhost"

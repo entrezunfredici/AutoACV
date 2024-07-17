@@ -11,7 +11,7 @@ servers:
           - https
         default: http
       server:
-        default: localhost:8000
+        default: localhost:9000
 tags:
   - name: "users"
     description: "Tout les utilisateur"
