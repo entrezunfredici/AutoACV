@@ -1,8 +1,8 @@
 import React from 'react';
-import TiquetComponent from './TiquetComponent';
+import TiquetComponent from './TiquetComponentAdmin';
 import {jwtDecode} from 'jwt-decode';
 
-class TiquetsComponent extends React.Component {
+class TiquetsComponentAdmin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,26 +15,24 @@ class TiquetsComponent extends React.Component {
   componentDidMount() {
     const decodedToken = jwtDecode(localStorage.getItem('token'));
     const id = decodedToken.data.id_Users;
-    console.log(this.state.tiquetsVehicules);
-    console.log(this.state.tiquetsSources);
-    console.log(this.state.tiquetsMixs);
+    
     fetch('http://localhost:8000/tiquetsVehicules')
       .then((response) => response.json())
       .then((data) => {
-        const userTiquets = data.tiquetsVehicules.filter(tiquet => tiquet.id_user === id);
-        this.setState({ tiquetsVehicules: userTiquets });
+        const vehiclesTiquets = data.tiquetsVehicules;
+        this.setState({ tiquetsVehicules: vehiclesTiquets });
       });
     fetch('http://localhost:8000/tiquetsSources')
       .then((response) => response.json())
       .then((data) => {
-        const userTiquets = data.tiquetsSources.filter(tiquet => tiquet.id_user === id);
-        this.setState({ tiquetsSources: userTiquets });
+        const sourceTiquets = data.tiquetsSources;
+        this.setState({ tiquetsSources: sourceTiquets });
       });
     fetch('http://localhost:8000/tiquetsMixs')
       .then((response) => response.json())
       .then((data) => {
-        const userTiquets = data.tiquetsMixs.filter(tiquet => tiquet.id_user === id);
-        this.setState({ tiquetsMixs: userTiquets });
+        const mixTiquets = data.tiquetsMixs;
+        this.setState({ tiquetsMixs: mixTiquets });
       });
     }
 
@@ -80,4 +78,4 @@ class TiquetsComponent extends React.Component {
   }
 }
 
-export default TiquetsComponent;
+export default TiquetsComponentAdmin;
